@@ -1,0 +1,14 @@
+{
+    "name": "Mihail/training",
+    "description": "this only for my testdrive working",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Mihail Kornilov",
+            "email": "fix-06@yandex.ru"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "3.7.28"
+    }
+}
