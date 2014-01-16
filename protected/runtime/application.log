@@ -21,3 +21,36 @@ Stack trace:
 REQUEST_URI=/index.php?r=site/contact
 HTTP_REFERER=http://training/index.php?r=site/page&view=about
 ---
+2014/01/16 22:57:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ajax/index".' in C:\Apache24\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\Apache24\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('ajax/index')
+#1 C:\Apache24\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\Apache24\htdocs\yii\training\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=ajax/index
+HTTP_REFERER=http://training/
+---
+2014/01/16 23:24:57 [error] [php] mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (C:\Apache24\htdocs\yii\training\protected\controllers\SiteController.php:67)
+Stack trace:
+#0 C:\Apache24\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\Apache24\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#2 C:\Apache24\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#3 C:\Apache24\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#4 C:\Apache24\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 C:\Apache24\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 C:\Apache24\htdocs\yii\training\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/site/contact
+in C:\Apache24\htdocs\yii\training\protected\controllers\SiteController.php (67)
+in C:\Apache24\htdocs\yii\training\index.php (13)
+2014/01/16 23:28:01 [error] [php] mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (C:\Apache24\htdocs\yii\training\protected\controllers\SiteController.php:67)
+Stack trace:
+#0 C:\Apache24\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\Apache24\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#2 C:\Apache24\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#3 C:\Apache24\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#4 C:\Apache24\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 C:\Apache24\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 C:\Apache24\htdocs\yii\training\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/site/contact
+in C:\Apache24\htdocs\yii\training\protected\controllers\SiteController.php (67)
+in C:\Apache24\htdocs\yii\training\index.php (13)
