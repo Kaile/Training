@@ -1,12 +1,30 @@
+
+span {
+    margin: 5px;
+}
+
+
+
 .unit {
+    width: 90%;
+    margin: auto;
 }
 
 .unitText {
     width: 500px;
 }
 
+#textAdd {
+    width: 500px;
+}
+
 .unitNumber {
 
+}
+
+#numAdd {
+    text-align: center;
+    width: 30px;
 }
 
 .unitType {
