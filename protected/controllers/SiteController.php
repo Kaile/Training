@@ -29,7 +29,19 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+
+        $param = array(
+            array(
+                'Title 1',
+                'News body 1'
+            ),
+            array(
+                'Title 2',
+                'News body 2'
+            )
+        );
+
+		$this->render('index', array('param' => $param));
 	}
 
 	/**

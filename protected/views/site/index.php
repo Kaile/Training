@@ -8,4 +8,11 @@ $this->pageTitle=Yii::app()->name;
 <p></p>
 <p>
 
+    <!-- Поделись своей проблемой анонимно и получи анонимный четный ответ -->
+    <?php
+        foreach ($param as $res) {
+            echo $res[0] . PHP_EOL;
+            echo $res[1] . PHP_EOL . PHP_EOL;
+        }
+    ?>
 </p>
