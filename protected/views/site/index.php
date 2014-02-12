@@ -4,16 +4,26 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 
-<h1 style="text-align: center">Список новостей</h1>
-<p></p>
+<h1 style="text-align: center">Список мероприятий</h1>
 <p>
+    <div id="forAdd" class="unit">
+        <span class="unitText">
+            <input value="Введите сюда свое новое мероприятие" type="text" id="textAdd" />
+        </span>
+        <span class="unitNumber">
+            <input value="1" type="text" id="numAdd" />
+        </span>
+        <span class="unitType">
+            <select class="selectType">
+                <option disabled selected>Выбрать единицу</option>
+                <option value="hour">Часы</option>
+                <option value="unit">Штуки</option>
+                <option value="bout">Чвсы</option>
+            </select>
+        </span>
+        <span class="btnAdd">
+            <input type="button" value="Добавить" />
+        </span>
+    </div>
 
-    <!-- Поделись своей проблемой анонимно и получи анонимный четный ответ -->
-    <!-- Поделись своей проблемой анонимно и получи анонимный четный ответ -->
-    <?php
-        foreach ($param as $res) {
-            echo $res[0] . PHP_EOL;
-            echo $res[1] . PHP_EOL . PHP_EOL;
-        }
-    ?>
 </p>
