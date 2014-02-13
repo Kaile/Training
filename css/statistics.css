@@ -3,8 +3,6 @@ span {
     margin: 5px;
 }
 
-
-
 .unit {
     width: 90%;
     margin: auto;
@@ -16,6 +14,9 @@ span {
 
 #textAdd {
     width: 500px;
+    font-family: "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
+    font-style: italic;
+    color: #999;
 }
 
 .unitNumber {
