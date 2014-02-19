@@ -12,15 +12,14 @@ $this->pageTitle=Yii::app()->name;
         </div>
         <hr >
     <?php endif?>
+
     <?php
-        if (Yii::app()->request->isAjaxRequest) {
-            $tmp = '';
-            foreach($_POST as $val) {
-                $tmp .= $val . ', ';
-            }
-            echo $tmp;
+        if (isset($_POST['test'])) {
+            echo 'Hello';
+            exit(0);
         }
     ?>
+
     <h2 style="text-align: center">Добавить новое мероприятие</h2>
     <form name="addUnit" action="/site/index" method="post">
         <div id="forAdd" class="unit">
@@ -38,8 +37,8 @@ $this->pageTitle=Yii::app()->name;
                     <option value="bout">Разы</option>
                 </select>
             </span>
-            <span class="btnAdd">
-                <input type="button" value="Добавить" />
+            <span>
+                <input class="btnAdd" type="button" value="Добавить" />
             </span>
         </div>
     </form>

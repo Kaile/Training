@@ -2,7 +2,7 @@ import "dart:html";
 
 class StatLoad {
 
-    String _url = 'index.php';
+    String _url = 'http://training/index.php/site/index';
     String _selectorForLoad = '';
 
 	StatLoad(this._url, this._selectorForLoad);
@@ -14,20 +14,17 @@ class StatLoad {
 	String get url => this._url;
 	
 	void addListener(String qSel) {
-	    querySelector(qSel).onClick.listen((event) => loadData);
+	    querySelector(qSel).onClick.listen((event) => loadData());
 	}
 	
 	void loadData() {
 	    HttpRequest request = new HttpRequest();
-	    request.open('POST', this.url, async: true);
+	    request.open('POST', this.url, async: false);
 	    
-	    String json = '{"testing" : "Hello"}';
+	    String json = '{"test" : "Hello"}';
 	    
 	    request.send(json);
-	    
-	    if (request.readyState == HttpRequest.DONE && 
-	            (request.status == 0 || request.status == 200)) {
-	        print(request.responseText);
-	    }
+
+	    print(request.responseText);
 	}
 }

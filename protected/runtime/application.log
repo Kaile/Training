@@ -54,3 +54,20 @@ Stack trace:
 REQUEST_URI=/index.php/site/contact
 in C:\Apache24\htdocs\yii\training\protected\controllers\SiteController.php (67)
 in C:\Apache24\htdocs\yii\training\index.php (13)
+2014/02/20 01:02:46 [error] [php] Undefined index: test (C:\Apache24\htdocs\yii\training\protected\views\site\index.php:17)
+Stack trace:
+#0 C:\Apache24\htdocs\yii\framework\web\CController.php(869): SiteController->renderFile()
+#1 C:\Apache24\htdocs\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#2 C:\Apache24\htdocs\yii\training\protected\controllers\SiteController.php(16): SiteController->render()
+#3 C:\Apache24\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#4 C:\Apache24\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\Apache24\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#6 C:\Apache24\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#7 C:\Apache24\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#8 C:\Apache24\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\Apache24\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\Apache24\htdocs\yii\training\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in C:\Apache24\htdocs\yii\training\protected\views\site\index.php (17)
+in C:\Apache24\htdocs\yii\training\protected\controllers\SiteController.php (16)
+in C:\Apache24\htdocs\yii\training\index.php (13)
