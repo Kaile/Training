@@ -7,7 +7,7 @@ $this->pageTitle=Yii::app()->name;
 <p>
     <?php if (!empty($statistic)):?>
         <h2 style="text-align: center">Список мероприятий</h2>
-        <div class="unit">
+        <div id="unitList" class="unit">
 
         </div>
         <hr >
@@ -26,7 +26,7 @@ $this->pageTitle=Yii::app()->name;
                     <option disabled selected>Выбрать единицу</option>
                     <option value="hour">Часы</option>
                     <option value="unit">Штуки</option>
-                    <option value="bout">Чвсы</option>
+                    <option value="bout">Разы</option>
                 </select>
             </span>
             <span class="btnAdd">

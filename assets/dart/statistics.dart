@@ -1,5 +1,7 @@
 import "dart:html";
+import "StatLoad.dart";
 
-int main() {
-	
+main() {
+	var load = new StatLoad();
 }
+
