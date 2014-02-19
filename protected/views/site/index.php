@@ -12,6 +12,15 @@ $this->pageTitle=Yii::app()->name;
         </div>
         <hr >
     <?php endif?>
+    <?php
+        if (Yii::app()->request->isAjaxRequest) {
+            $tmp = '';
+            foreach($_POST as $val) {
+                $tmp .= $val . ', ';
+            }
+            echo $tmp;
+        }
+    ?>
     <h2 style="text-align: center">Добавить новое мероприятие</h2>
     <form name="addUnit" action="/site/index" method="post">
         <div id="forAdd" class="unit">
