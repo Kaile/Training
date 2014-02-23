@@ -1,6 +1,6 @@
-import "StatLoad.dart";
+import "Listeners.dart";
 
 main() {
-	var load = new StatLoad.simple();
-	load.addListener(".btnAdd");
+	new Listener()..clearInputOnChange('#textAdd')
+                ..clearInputOnChange('#numAdd');
 }
