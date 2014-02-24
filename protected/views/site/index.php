@@ -13,13 +13,6 @@ $this->pageTitle=Yii::app()->name;
         <hr >
     <?php endif?>
 
-    <?php
-        if (isset($_POST['test'])) {
-            echo 'Hello';
-            exit(0);
-        }
-    ?>
-
     <h2 style="text-align: center">Добавить новое мероприятие</h2>
     <form name="addUnit" action="/site/index" method="post">
         <div id="forAdd" class="unit">
