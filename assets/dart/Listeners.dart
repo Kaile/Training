@@ -8,7 +8,7 @@ class Listener {
    */
   Listener();
 
-  void clearInputOnChange(String el){
+  void clearInputOnClick(String el){
     Element input = querySelector(el);
     
     input.onClick.listen((e) => _clearInput(input));

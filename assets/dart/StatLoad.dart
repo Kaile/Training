@@ -2,7 +2,7 @@ import "dart:html";
 
 class StatLoad {
 
-    String _url = 'http://training/index.php/site/index';
+    String _url = '/index.php/site/addunit';
     String _selectorForLoad = '';
 
 	StatLoad(this._url, this._selectorForLoad);
@@ -14,17 +14,18 @@ class StatLoad {
 	String get url => this._url;
 	
 	void addListener(String qSel) {
-	    querySelector(qSel).onClick.listen((event) => loadData());
+        HttpRequest request = new HttpRequest();
+
+	    querySelector(qSel).onClick.listen((e) {
+            String json = '{"test" : "Hello"}';
+
+            request.onLoadEnd.listen((e) => _loadData(request));
+            request.open('POST', this.url, async: true);
+            request.send(json);
+        });
 	}
 	
-	void loadData() {
-	    HttpRequest request = new HttpRequest();
-	    request.open('POST', this.url, async: false);
-	    
-	    String json = '{"test" : "Hello"}';
-	    
-	    request.send(json);
+	void _loadData(HttpRequest request) {
 
-	    print(request.responseText);
 	}
 }
