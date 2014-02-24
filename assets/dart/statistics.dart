@@ -2,7 +2,7 @@ import "Listeners.dart";
 import "StatLoad.dart";
 
 main() {
-	new Listener()..clearInputOnClick('#textAdd')
-                ..clearInputOnClick('#numAdd');
-  new StatLoad.simple().addListener('.btnAdd');
+	Listener listener = new Listener()..clearInputOnClick('#textAdd')
+                                      ..clearInputOnClick('#numAdd');
+    StatLoad loader = new StatLoad('/index.php/site/addunit', '#unitList')..addListener('.btnAdd');
 }
