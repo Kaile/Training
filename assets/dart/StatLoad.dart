@@ -1,4 +1,5 @@
 import "dart:html";
+import "dart:convert";
 
 class StatLoad {
 
@@ -13,19 +14,23 @@ class StatLoad {
 	
 	String get url => this._url;
 	
-	void addListener(String qSel) {
+	void addListener(String qSel, {List<String> json}) {
         HttpRequest request = new HttpRequest();
 
-	    querySelector(qSel).onClick.listen((e) {
-            String json = '{"test" : "Hello"}';
+        Map<String, String> jsonMap = new Map();
 
+        json.forEach((elem) {
+            Element tmp = querySelector(elem);
+            jsonMap['${tmp.getAttribute("name")}'] = '${tmp.getAttribute("value")}';
+        });
+	    querySelector(qSel).onClick.listen((e) {
             request.onLoadEnd.listen((e) => _loadData(request));
             request.open('POST', this.url, async: true);
-            request.send(json);
+            request.send(JSON.encode(jsonMap));
         });
 	}
 	
 	void _loadData(HttpRequest request) {
-
+        
 	}
 }
