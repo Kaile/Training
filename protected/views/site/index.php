@@ -14,7 +14,7 @@ $this->pageTitle=Yii::app()->name;
     <?php endif?>
 
     <h2 style="text-align: center">Добавить новое мероприятие</h2>
-    <form name="addUnit" action="/site/index" method="post">
+    <form name="addUnit" action="/index.php/site/index/" method="post">
         <div id="forAdd" class="unit">
             <span class="unitText">
                 <input value="Введите сюда свое новое мероприятие" type="text" id="textAdd" name="Text"/>

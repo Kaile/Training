@@ -32,7 +32,12 @@ class SiteController extends Controller
 	}
 
     public function actionAddUnit() {
-        echo 'it\'s ok';
-        Yii::app()->end();
+        $units = new Units();
+
+        $units->text = Yii::app()->request->getPost('Text');
+        $units->count = Yii::app()->request->getPost('Count');
+        $units->type = 'hours';
+        $units->date = '2014/02/24';
+        $units.save();
     }
 }
