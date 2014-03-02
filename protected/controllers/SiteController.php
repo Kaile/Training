@@ -38,6 +38,9 @@ class SiteController extends Controller
         $units->count = Yii::app()->request->getPost('Count');
         $units->type = 'hours';
         $units->date = '2014/02/24';
-        $units.save();
+        $units->save();
+
+        echo('true');
+
     }
 }

@@ -54,6 +54,4 @@
 </div><!-- page -->
 
 </body>
-<script type="application/dart" src="/assets/dart/statistics.dart"></script>
-<script type="application/javascript" src="/assets/dart/dart.js"></script>
 </html>
