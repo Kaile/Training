@@ -14,16 +14,20 @@ $this->pageTitle=Yii::app()->name;
     <?php endif?>
 
     <h2 style="text-align: center">Добавить новое мероприятие</h2>
-    <form name="addUnit" action="/index.php/site/index/" method="post">
+    <?php CHtml::beginForm(); ?>
+    <?php CHtml::errorSummary($model); ?>
         <div id="forAdd" class="unit">
             <span class="unitText">
-                <input value="Введите сюда свое новое мероприятие" type="text" id="textAdd" name="Text"/>
+    
+                <input value="Введите сюда свое новое мероприятие" type="text" id="textAdd" name="text"/>
             </span>
             <span class="unitNumber">
-                <input value="1" type="text" id="numAdd" name="Count"/>
+                
+                <input value="1" type="text" id="numAdd" name="count"/>
             </span>
             <span class="unitType">
-                <select class="selectType" name="Type">
+                
+                <select class="selectType" name="type">
                     <option disabled selected>Выбрать единицу</option>
                     <option value="hour">Часы</option>
                     <option value="unit">Штуки</option>
@@ -31,8 +35,10 @@ $this->pageTitle=Yii::app()->name;
                 </select>
             </span>
             <span>
+                
                 <input class="btnAdd" type="button" value="Добавить" />
             </span>
         </div>
+    
     </form>
 </p>

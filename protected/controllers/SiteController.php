@@ -32,15 +32,15 @@ class SiteController extends Controller
 	}
 
     public function actionAddUnit() {
-        $units = new Units();
-
-        $units->text = Yii::app()->request->getPost('Text');
-        $units->count = Yii::app()->request->getPost('Count');
-        $units->type = 'hours';
-        $units->date = '2014/02/24';
-        $units->save();
-
-        echo('true');
-
+        $model = new Units();
+        
+        if (isset($_POST['addUnit'])) {
+            $model->attributes = $_POST['addUnit'];
+        }
+        
+        if ($model->save()) {
+            $model->add
+        }
+        
     }
 }
