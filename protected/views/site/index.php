@@ -14,19 +14,25 @@ $this->pageTitle=Yii::app()->name;
     <?php endif?>
 
     <h2 style="text-align: center">Добавить новое мероприятие</h2>
-    <?php CHtml::beginForm(); ?>
-    <?php CHtml::errorSummary($model); ?>
+    <?php echo CHtml::beginForm(); ?>
+
         <div id="forAdd" class="unit">
             <span class="unitText">
-    
-                <input value="Введите сюда свое новое мероприятие" type="text" id="textAdd" name="text"/>
+                <?php echo CHtml::label('Введите сюда свое новое мероприятие', 'text'); ?><br>
+                <?php echo CHtml::textField('text'); ?>
             </span>
             <span class="unitNumber">
-                
-                <input value="1" type="text" id="numAdd" name="count"/>
+                <?php echo CHtml::textField('count', '1') ?>
             </span>
             <span class="unitType">
-                
+                <?php echo CHtml::dropDownList(
+                                                'type',
+                                                'Выберите тип',
+                                                array(
+                                                    'Часы' => array('hour' => 'hour'),
+                                                    'Штуки' => array('unit' => 'unit'),
+                                                )
+                                               ); ?>
                 <select class="selectType" name="type">
                     <option disabled selected>Выбрать единицу</option>
                     <option value="hour">Часы</option>
@@ -35,10 +41,8 @@ $this->pageTitle=Yii::app()->name;
                 </select>
             </span>
             <span>
-                
-                <input class="btnAdd" type="button" value="Добавить" />
+                <?php echo CHtml::ajaxSubmitButton('Добавить', ''); ?>
             </span>
         </div>
-    
-    </form>
+    <?php CHtml::endForm(); ?>
 </p>

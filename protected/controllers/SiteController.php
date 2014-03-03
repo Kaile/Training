@@ -39,7 +39,6 @@ class SiteController extends Controller
         }
         
         if ($model->save()) {
-            $model->add
         }
         
     }
