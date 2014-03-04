@@ -26,20 +26,14 @@ $this->pageTitle=Yii::app()->name;
             </span>
             <span class="unitType">
                 <?php echo CHtml::dropDownList( 'type',
-                                                'chunit',
+                                                '',
                                                 array(
-                                                    'chunit' => 'Выбрать единицу',
-                                                    'hour' => 'часы',
-                                                    'unit' => 'штуки',
-                                                    'bout' => 'разы',),
-                                                array(
+                                                    'Выбрать единицу' => array(
+                                                        'hour' => 'часы',
+                                                        'unit' => 'штуки',
+                                                        'bout' => 'разы',
+                                                    )
                                                 )); ?>
-                <select class="selectType" name="type">
-                    <option disabled selected>Выбрать единицу</option>
-                    <option value="hour">Часы</option>
-                    <option value="unit">Штуки</option>
-                    <option value="bout">Разы</option>
-                </select>
             </span>
             <span>
                 <?php echo CHtml::ajaxSubmitButton('Добавить', ''); ?>
