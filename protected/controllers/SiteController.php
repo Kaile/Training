@@ -13,33 +13,50 @@ class SiteController extends Controller
 	public function actionIndex() {
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
+        $model = new Units();
 
-
-		$this->render('index');
+        $statistic = $model->findAll();
+        
+		$this->render('index', array('statistic' => $statistic));
 	}
 
 	/**
 	 * This is the action to handle external exceptions.
 	 */
 	public function actionError() {
-		if($error=Yii::app()->errorHandler->error)
+		if($error = Yii::app()->errorHandler->error)
 		{
-			if(Yii::app()->request->isAjaxRequest)
+			if(Yii::app()->request->isAjaxRequest) {
 				echo $error['message'];
-			else
+            }
+			else {
 				$this->render('error', $error);
+            }
 		}
 	}
 
     public function actionAddUnit() {
         $model = new Units();
         
-        if (isset($_POST['addUnit'])) {
-            $model->attributes = $_POST['addUnit'];
+        foreach ($_POST as $key => $val) {
+            $model->$key = $val;
         }
         
-        if ($model->save()) {
+        try {
+            $model->save();
+            echo '<div class="unit">
+                    <span class="unitText">
+                        '. Yii::app()->request->getPost('text') .'
+                    </span>
+                    <span class="unitNumber">
+                        '. Yii::app()->request->getPost('count') .'
+                    </span>
+                    <span class="unitType">
+                        '. Yii::app()->request->getPost('type') .'
+                    </span>
+                 </div>';
+        } catch (CDbException $e) {
+            echo $e->getMessage();
         }
-        
     }
 }

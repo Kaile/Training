@@ -71,3 +71,487 @@ REQUEST_URI=/
 in C:\Apache24\htdocs\yii\training\protected\views\site\index.php (17)
 in C:\Apache24\htdocs\yii\training\protected\controllers\SiteController.php (16)
 in C:\Apache24\htdocs\yii\training\index.php (13)
+2014/03/04 12:27:52 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbConnection.php:381
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(438): CModule->getComponent('db')
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(623): CApplication->getDb()
+#5 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(2309): CActiveRecord->getDbConnection()
+#6 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(Units))
+#7 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(402): CActiveRecord::model('Units')
+#8 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(77): CActiveRecord->getMetaData()
+#9 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php(37): CActiveRecord->__construct()
+#10 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionAddUnit()
+#11 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('addunit')
+#15 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/addunit')
+#16 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php/site/addunit/
+HTTP_REFERER=http://training/
+---
+2014/03/04 12:33:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'training.units' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `Units`.
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php (37)
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php (13)
+2014/03/04 12:33:00 [error] [exception.CDbException] exception 'CDbException' with message 'The table "Units" for active record class "Units" cannot be found in the database.' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php:2310
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(Units))
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(402): CActiveRecord::model('Units')
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(77): CActiveRecord->getMetaData()
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php(37): CActiveRecord->__construct()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionAddUnit()
+#5 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('addunit')
+#9 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/addunit')
+#10 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php/site/addunit/
+HTTP_REFERER=http://training/
+---
+2014/03/04 12:34:18 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1364 Field 'text' doesn't have a default value. The SQL statement executed was: INSERT INTO `Units` (`id`) VALUES (NULL).
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php (43)
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php (13)
+2014/03/04 12:34:18 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1364 Field 'text' doesn't have a default value. The SQL statement executed was: INSERT INTO `Units` (`id`) VALUES (NULL)' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php(43): CActiveRecord->save()
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionAddUnit()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('addunit')
+#8 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/addunit')
+#9 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php/site/addunit/
+HTTP_REFERER=http://training/
+---
+2014/03/04 12:42:18 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1364 Field 'text' doesn't have a default value. The SQL statement executed was: INSERT INTO `Units` (`id`) VALUES (NULL).
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php (43)
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php (13)
+2014/03/04 12:42:18 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1364 Field 'text' doesn't have a default value. The SQL statement executed was: INSERT INTO `Units` (`id`) VALUES (NULL)' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php(43): CActiveRecord->save()
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionAddUnit()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('addunit')
+#8 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/addunit')
+#9 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php/site/addunit/
+HTTP_REFERER=http://training/
+---
+2014/03/04 12:44:14 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1364 Field 'text' doesn't have a default value. The SQL statement executed was: INSERT INTO `Units` (`id`) VALUES (NULL).
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php (46)
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php (13)
+2014/03/04 12:44:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1364 Field 'text' doesn't have a default value. The SQL statement executed was: INSERT INTO `Units` (`id`) VALUES (NULL)' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php(46): CActiveRecord->save()
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionAddUnit()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('addunit')
+#8 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/addunit')
+#9 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php/site/addunit/
+HTTP_REFERER=http://training/
+---
+2014/03/04 12:44:31 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1364 Field 'text' doesn't have a default value. The SQL statement executed was: INSERT INTO `Units` (`id`) VALUES (NULL).
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php (46)
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php (13)
+2014/03/04 12:44:31 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1364 Field 'text' doesn't have a default value. The SQL statement executed was: INSERT INTO `Units` (`id`) VALUES (NULL)' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php(46): CActiveRecord->save()
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionAddUnit()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('addunit')
+#8 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/addunit')
+#9 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php/site/addunit/
+HTTP_REFERER=http://training/
+---
+2014/03/04 12:45:02 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1364 Field 'count' doesn't have a default value. The SQL statement executed was: INSERT INTO `Units` (`text`) VALUES (:yp0).
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php (46)
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php (13)
+2014/03/04 12:45:02 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1364 Field 'count' doesn't have a default value. The SQL statement executed was: INSERT INTO `Units` (`text`) VALUES (:yp0)' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php(46): CActiveRecord->save()
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionAddUnit()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('addunit')
+#8 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/addunit')
+#9 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php/site/addunit/
+HTTP_REFERER=http://training/
+---
+2014/03/04 12:46:16 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1364 Field 'count' doesn't have a default value. The SQL statement executed was: INSERT INTO `Units` (`text`) VALUES (:yp0).
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php (46)
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php (13)
+2014/03/04 12:46:16 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1364 Field 'count' doesn't have a default value. The SQL statement executed was: INSERT INTO `Units` (`text`) VALUES (:yp0)' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php(46): CActiveRecord->save()
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionAddUnit()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('addunit')
+#8 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/addunit')
+#9 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php/site/addunit/
+HTTP_REFERER=http://training/
+---
+2014/03/04 12:48:51 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1364 Field 'text' doesn't have a default value. The SQL statement executed was: INSERT INTO `Units` (`id`) VALUES (NULL).
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php (47)
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php (13)
+2014/03/04 12:48:51 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1364 Field 'text' doesn't have a default value. The SQL statement executed was: INSERT INTO `Units` (`id`) VALUES (NULL)' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php(47): CActiveRecord->save()
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionAddUnit()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('addunit')
+#8 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/addunit')
+#9 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php/site/addunit/
+HTTP_REFERER=http://training/
+---
+2014/03/04 13:15:39 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'bout' for key 'type_UNIQUE'. The SQL statement executed was: INSERT INTO `Units` (`text`, `count`, `type`) VALUES (:yp0, :yp1, :yp2).
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php (43)
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php (13)
+2014/03/04 13:15:39 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'bout' for key 'type_UNIQUE'. The SQL statement executed was: INSERT INTO `Units` (`text`, `count`, `type`) VALUES (:yp0, :yp1, :yp2)' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php(43): CActiveRecord->save()
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionAddUnit()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('addunit')
+#8 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/addunit')
+#9 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php/site/addunit/
+HTTP_REFERER=http://training/
+---
+2014/03/04 13:15:47 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'bout' for key 'type_UNIQUE'. The SQL statement executed was: INSERT INTO `Units` (`text`, `count`, `type`) VALUES (:yp0, :yp1, :yp2).
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php (43)
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php (13)
+2014/03/04 13:15:47 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'bout' for key 'type_UNIQUE'. The SQL statement executed was: INSERT INTO `Units` (`text`, `count`, `type`) VALUES (:yp0, :yp1, :yp2)' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php(43): CActiveRecord->save()
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionAddUnit()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('addunit')
+#8 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/addunit')
+#9 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php/site/addunit/
+HTTP_REFERER=http://training/
+---
+2014/03/04 13:18:10 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1364 Field 'text' doesn't have a default value. The SQL statement executed was: INSERT INTO `Units` (`id`) VALUES (NULL).
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php (45)
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php (13)
+2014/03/04 13:18:10 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1364 Field 'text' doesn't have a default value. The SQL statement executed was: INSERT INTO `Units` (`id`) VALUES (NULL)' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php(45): CActiveRecord->save()
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionAddUnit()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('addunit')
+#8 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/addunit')
+#9 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php/site/addunit/
+HTTP_REFERER=http://training/
+---
+2014/03/04 16:44:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(270): CController->missingAction('index.php')
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('index.php')
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index.php/...')
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/index.php/site/addunit/
+HTTP_REFERER=http://training/index.php/site/index
+---
+2014/03/04 16:44:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(270): CController->missingAction('index.php')
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('index.php')
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index.php/...')
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/index.php/site/addunit/
+HTTP_REFERER=http://training/index.php/site/index
+---
+2014/03/04 16:45:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(270): CController->missingAction('index.php')
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('index.php')
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index.php/...')
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/index.php/site/addunit/
+HTTP_REFERER=http://training/index.php/site/index
+---
+2014/03/04 18:44:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "index.php/site/index".' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('index.php/site/...')
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/site/index
+HTTP_REFERER=http://training/index.php/site/index
+---
+2014/03/04 19:07:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(270): CController->missingAction('index.php')
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('index.php')
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index.php/...')
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/index.php/site/addunit/
+HTTP_REFERER=http://training/index.php/site/index
+---
+2014/03/04 19:07:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(270): CController->missingAction('index.php')
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('index.php')
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index.php/...')
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/index.php/site/addunit/
+HTTP_REFERER=http://training/index.php/site/index
+---
+2014/03/04 19:07:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(270): CController->missingAction('index.php')
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('index.php')
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index.php/...')
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/index.php/site/addunit/
+HTTP_REFERER=http://training/index.php/site/index
+---
+2014/03/04 19:07:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(270): CController->missingAction('index.php')
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('index.php')
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index.php/...')
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/index.php/site/addunit/
+HTTP_REFERER=http://training/index.php/site/index
+---
+2014/03/04 19:07:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(270): CController->missingAction('index.php')
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('index.php')
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index.php/...')
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/index.php/site/addunit/
+HTTP_REFERER=http://training/index.php/site/index
+---
+2014/03/04 19:07:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(270): CController->missingAction('index.php')
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('index.php')
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index.php/...')
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/index.php/site/addunit/
+HTTP_REFERER=http://training/index.php/site/index
+---
+2014/03/04 19:07:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(270): CController->missingAction('index.php')
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('index.php')
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index.php/...')
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/index.php/site/addunit/
+HTTP_REFERER=http://training/index.php/site/index
+---
+2014/03/04 19:07:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(270): CController->missingAction('index.php')
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('index.php')
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index.php/...')
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/index.php/site/addunit/
+HTTP_REFERER=http://training/index.php/site/index
+---
+2014/03/04 19:07:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(270): CController->missingAction('index.php')
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('index.php')
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index.php/...')
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/index.php/site/addunit/
+HTTP_REFERER=http://training/index.php/site/index
+---
+2014/03/04 19:07:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(270): CController->missingAction('index.php')
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('index.php')
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index.php/...')
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/index.php/site/addunit/
+HTTP_REFERER=http://training/index.php/site/index
+---
+2014/03/04 19:07:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(270): CController->missingAction('index.php')
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('index.php')
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index.php/...')
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/index.php/site/addunit/
+HTTP_REFERER=http://training/index.php/site/index
+---
+2014/03/04 19:07:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(270): CController->missingAction('index.php')
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('index.php')
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index.php/...')
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/index.php/site/addunit/
+HTTP_REFERER=http://training/index.php/site/index
+---
+2014/03/04 19:07:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(270): CController->missingAction('index.php')
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('index.php')
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index.php/...')
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/index.php/site/addunit/
+HTTP_REFERER=http://training/index.php/site/index
+---
+2014/03/04 19:08:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(270): CController->missingAction('index.php')
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('index.php')
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index.php/...')
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/index.php/site/addunit/
+HTTP_REFERER=http://training/index.php/site/index
+---
+2014/03/04 19:08:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(270): CController->missingAction('index.php')
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('index.php')
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index.php/...')
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/index.php/site/addunit/
+HTTP_REFERER=http://training/index.php/site/index
+---
+2014/03/04 19:09:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(270): CController->missingAction('index.php')
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('index.php')
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index.php/...')
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/index.php/site/addunit/
+HTTP_REFERER=http://training/index.php/site/index
+---
+2014/03/04 19:09:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(270): CController->missingAction('index.php')
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): CController->run('index.php')
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index.php/...')
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/index.php/site/addunit/
+HTTP_REFERER=http://training/index.php/site/index
+---
+2014/03/04 19:18:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "http://training".' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('http://training')
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/http://training
+HTTP_REFERER=http://training/
+---
