@@ -4,10 +4,11 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 <script type="text/javascript" src="/assets/userscripts/forms.js"></script>
+<script type="text/javascript" src="/assets/userscripts/jquery.dataTables.min.js"></script>
 <h2 style="text-align: center">Добавить новое мероприятие</h2>
 <form method="POST" action="/">
 
-    <div id="forAdd" class="unit">
+    <div id="forAdd">
         <span class="unitText">
             <?php echo CHtml::label('Введите сюда свое новое мероприятие', 'text'); ?><br>
             <?php echo CHtml::textField('text', '', array('id' => 'inputAdd')); ?>
@@ -35,22 +36,25 @@ $this->pageTitle=Yii::app()->name;
 
 <?php if (!empty($statistic)):?>
     <br><br>
-    <hr >
+    <hr style="width: 96%; margin: auto">
+    <br><br>
     <h2 style="text-align: center">Список мероприятий</h2>
-    <div>
-        <?php foreach ($statistic as $val): ?>
-            <div class="unit">
-                <span class="unitText">
-                        <?php echo $val->text; ?>
-                    </span>
-                    <span class="unitNumber">
-                        <?php echo intval($val->count); ?>
-                    </span>
-                    <span class="unitType">
-                        <?php echo $val->type; ?>
-                    </span>
-            </div>
-        <?php endforeach ?>
+    <div id="unitList">
+        <table id="units">
+            <thead>
+                <th>Название мероприятия</th>
+                <th>Количество</th>
+                <th>Единицы</th>
+            </thead>
+            <tbody>
+                <?php foreach ($statistic as $val): ?>
+                    <tr>
+                        <td><?php echo $val->text; ?></td>
+                        <td><?php echo intval($val->count); ?></td>
+                        <td><?php echo $val->type; ?></td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
     <div/>
-    <div id="unitList"/>
 <?php endif ?>

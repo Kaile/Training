@@ -3,9 +3,14 @@ span {
     margin: 5px;
 }
 
-.unit {
+.unit, #forAdd {
     width: 90%;
-    margin: auto;
+    margin: 10px auto;
+}
+
+.unit {
+    padding: 5px 0;
+    border: #EEE 2px groove;
 }
 
 .unitText input {
@@ -29,10 +34,22 @@ span {
     width: 30px;
 }
 
-.unitType {
+.unitText {
+    width: 100px;
+}
 
+.unitType {
+    width: 100px;
+}
+
+.unitNumber {
+    width: 50px;
+}
+
+.unitNumber, .unitText {
+    border-right: #EEE groove 2px;
 }
 
 .btnAdd {
-
+    
 }

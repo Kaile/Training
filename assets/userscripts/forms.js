@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-$(document).ready(
+$(document).ready(function() {
     $('#btnAdd').live('click', function() {
         $.ajax({
             dataType: 'text',
@@ -14,7 +14,7 @@ $(document).ready(
             cache: false,
             success: function(data, textStatus, jqXHR) {
                 if ($('#unitList').length) {
-                    $('#unitList').html($('#unitList').html() + data);
+                    $('#units').dataTable().fnAddData(data.split('-'));
                     $('#inputAdd').val('');
                 } else {
                     location.reload();
@@ -24,5 +24,6 @@ $(document).ready(
                 alert(textStatus);
             }
         });
-    })
-);
+    });
+    $('#units').dataTable();
+});

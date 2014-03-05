@@ -44,17 +44,9 @@ class SiteController extends Controller
         
         try {
             $model->save();
-            echo '<div class="unit">
-                    <span class="unitText">
-                        '. Yii::app()->request->getPost('text') .'
-                    </span>
-                    <span class="unitNumber">
-                        '. Yii::app()->request->getPost('count') .'
-                    </span>
-                    <span class="unitType">
-                        '. Yii::app()->request->getPost('type') .'
-                    </span>
-                 </div>';
+            echo Yii::app()->request->getPost('text') . '-' .
+                 Yii::app()->request->getPost('count') . '-' .
+                 Yii::app()->request->getPost('type');
         } catch (CDbException $e) {
             echo 'Error occur: ' . $e->getMessage();
         }
