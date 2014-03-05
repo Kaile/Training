@@ -56,7 +56,7 @@ class SiteController extends Controller
                     </span>
                  </div>';
         } catch (CDbException $e) {
-            echo $e->getMessage();
+            echo 'Error occur: ' . $e->getMessage();
         }
     }
 }

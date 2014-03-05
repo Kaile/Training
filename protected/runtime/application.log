@@ -555,3 +555,21 @@ Stack trace:
 REQUEST_URI=/index.php/http://training
 HTTP_REFERER=http://training/
 ---
+2014/03/05 16:11:36 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1364 Field 'text' doesn't have a default value. The SQL statement executed was: INSERT INTO `Units` (`id`) VALUES (NULL).
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php (46)
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php (13)
+2014/03/05 16:12:03 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1364 Field 'text' doesn't have a default value. The SQL statement executed was: INSERT INTO `Units` (`id`) VALUES (NULL).
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php (46)
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php (13)
+2014/03/05 16:42:10 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1364 Field 'text' doesn't have a default value. The SQL statement executed was: INSERT INTO `Units` (`id`) VALUES (NULL).
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php (46)
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php (13)
+2014/03/05 16:53:32 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1364 Field 'text' doesn't have a default value. The SQL statement executed was: INSERT INTO `Units` (`id`) VALUES (NULL).
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php (47)
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php (13)
+2014/03/05 16:54:22 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1364 Field 'text' doesn't have a default value. The SQL statement executed was: INSERT INTO `Units` (`id`) VALUES (NULL).
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php (47)
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php (13)
+2014/03/05 16:59:58 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1364 Field 'text' doesn't have a default value. The SQL statement executed was: INSERT INTO `Units` (`id`) VALUES (NULL).
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php (47)
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php (13)
