@@ -8,6 +8,11 @@ span {
     margin: 10px auto;
 }
 
+#unitList {
+    width: 90%;
+    margin: auto;
+}
+
 .unit {
     padding: 5px 0;
     border: #EEE 2px groove;
@@ -32,22 +37,6 @@ span {
 #numAdd {
     text-align: center;
     width: 30px;
-}
-
-.unitText {
-    width: 100px;
-}
-
-.unitType {
-    width: 100px;
-}
-
-.unitNumber {
-    width: 50px;
-}
-
-.unitNumber, .unitText {
-    border-right: #EEE groove 2px;
 }
 
 .btnAdd {

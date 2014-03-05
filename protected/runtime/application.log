@@ -573,3 +573,142 @@ in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php (13)
 2014/03/05 16:59:58 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1364 Field 'text' doesn't have a default value. The SQL statement executed was: INSERT INTO `Units` (`id`) VALUES (NULL).
 in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php (47)
 in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php (13)
+2014/03/05 23:06:33 [error] [system.db.CDbCommand] Error in preparing SQL: CREATE TABLE 'Units' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL int(10) unsigned NOT NULL AUTO_INCREMENT,
+	"text" varchar(100) NOT NULL,
+	"count" int(3) unsigned NOT NULL,
+	"type" varchar(20) NOT NULL
+)
+2014/03/05 23:06:33 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "int": syntax error. The SQL statement executed was: CREATE TABLE 'Units' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL int(10) unsigned NOT NULL AUTO_INCREMENT,
+	"text" varchar(100) NOT NULL,
+	"count" int(3) unsigned NOT NULL,
+	"type" varchar(20) NOT NULL
+).
+2014/03/05 23:06:33 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "int": syntax error. The SQL statement executed was: CREATE TABLE 'Units' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL int(10) unsigned NOT NULL AUTO_INCREMENT,
+	"text" varchar(100) NOT NULL,
+	"count" int(3) unsigned NOT NULL,
+	"type" varchar(20) NOT NULL
+)' in /opt/lampp/htdocs/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /opt/lampp/htdocs/yii/framework/db/CDbCommand.php(1352): CDbCommand->execute()
+#1 /opt/lampp/htdocs/yii/framework/db/CDbMigration.php(250): CDbCommand->createTable('Units', Array, NULL)
+#2 /opt/lampp/htdocs/yii/training/protected/migrations/m140305_174906_CreateTableUnits.php(13): CDbMigration->createTable('Units', Array)
+#3 /opt/lampp/htdocs/yii/framework/cli/commands/MigrateCommand.php(415): m140305_174906_CreateTableUnits->up()
+#4 /opt/lampp/htdocs/yii/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m140305_174906_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /opt/lampp/htdocs/yii/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /opt/lampp/htdocs/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /opt/lampp/htdocs/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /opt/lampp/htdocs/yii/framework/base/CApplication.php(184): CConsoleApplication->processRequest()
+#10 /opt/lampp/htdocs/yii/framework/yiic.php(33): CApplication->run()
+#11 /opt/lampp/htdocs/yii/training/protected/yiic.php(7): require_once('/opt/lampp/htdo...')
+#12 /opt/lampp/htdocs/yii/training/protected/yiic(4): require_once('/opt/lampp/htdo...')
+#13 {main}
+---
+2014/03/05 23:09:13 [error] [system.db.CDbCommand] Error in preparing SQL: CREATE TABLE 'Units' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL AUTO_INCREMENT,
+	"text" varchar(255) NOT NULL,
+	"count" number NOT NULL,
+	"type" varchar(255) NOT NULL
+)
+2014/03/05 23:09:13 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "AUTO_INCREMENT": syntax error. The SQL statement executed was: CREATE TABLE 'Units' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL AUTO_INCREMENT,
+	"text" varchar(255) NOT NULL,
+	"count" number NOT NULL,
+	"type" varchar(255) NOT NULL
+).
+2014/03/05 23:09:13 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "AUTO_INCREMENT": syntax error. The SQL statement executed was: CREATE TABLE 'Units' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL AUTO_INCREMENT,
+	"text" varchar(255) NOT NULL,
+	"count" number NOT NULL,
+	"type" varchar(255) NOT NULL
+)' in /opt/lampp/htdocs/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /opt/lampp/htdocs/yii/framework/db/CDbCommand.php(1352): CDbCommand->execute()
+#1 /opt/lampp/htdocs/yii/framework/db/CDbMigration.php(250): CDbCommand->createTable('Units', Array, NULL)
+#2 /opt/lampp/htdocs/yii/training/protected/migrations/m140305_174906_CreateTableUnits.php(13): CDbMigration->createTable('Units', Array)
+#3 /opt/lampp/htdocs/yii/framework/cli/commands/MigrateCommand.php(415): m140305_174906_CreateTableUnits->up()
+#4 /opt/lampp/htdocs/yii/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m140305_174906_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /opt/lampp/htdocs/yii/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /opt/lampp/htdocs/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /opt/lampp/htdocs/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /opt/lampp/htdocs/yii/framework/base/CApplication.php(184): CConsoleApplication->processRequest()
+#10 /opt/lampp/htdocs/yii/framework/yiic.php(33): CApplication->run()
+#11 /opt/lampp/htdocs/yii/training/protected/yiic.php(7): require_once('/opt/lampp/htdo...')
+#12 /opt/lampp/htdocs/yii/training/protected/yiic(4): require_once('/opt/lampp/htdo...')
+#13 {main}
+---
+2014/03/05 23:21:13 [error] [system.db.CDbCommand] Error in preparing SQL: DROP TABLE 'Users'
+2014/03/05 23:21:13 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 no such table: Users. The SQL statement executed was: DROP TABLE 'Users'.
+2014/03/05 23:21:13 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 no such table: Users. The SQL statement executed was: DROP TABLE 'Users'' in /opt/lampp/htdocs/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /opt/lampp/htdocs/yii/framework/db/CDbCommand.php(1375): CDbCommand->execute()
+#1 /opt/lampp/htdocs/yii/framework/db/CDbMigration.php(275): CDbCommand->dropTable('Users')
+#2 /opt/lampp/htdocs/yii/training/protected/migrations/m140305_174906_CreateTableUnits.php(18): CDbMigration->dropTable('Users')
+#3 /opt/lampp/htdocs/yii/framework/cli/commands/MigrateCommand.php(440): m140305_174906_CreateTableUnits->down()
+#4 /opt/lampp/htdocs/yii/framework/cli/commands/MigrateCommand.php(181): MigrateCommand->migrateDown('m140305_174906_...')
+#5 [internal function]: MigrateCommand->actionRedo(Array)
+#6 /opt/lampp/htdocs/yii/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /opt/lampp/htdocs/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /opt/lampp/htdocs/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /opt/lampp/htdocs/yii/framework/base/CApplication.php(184): CConsoleApplication->processRequest()
+#10 /opt/lampp/htdocs/yii/framework/yiic.php(33): CApplication->run()
+#11 /opt/lampp/htdocs/yii/training/protected/yiic.php(7): require_once('/opt/lampp/htdo...')
+#12 /opt/lampp/htdocs/yii/training/protected/yiic(4): require_once('/opt/lampp/htdo...')
+#13 {main}
+---
+2014/03/05 23:21:50 [error] [system.db.CDbCommand] Error in preparing SQL: DROP TABLE 'Users'
+2014/03/05 23:21:50 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 no such table: Users. The SQL statement executed was: DROP TABLE 'Users'.
+2014/03/05 23:21:50 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 no such table: Users. The SQL statement executed was: DROP TABLE 'Users'' in /opt/lampp/htdocs/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /opt/lampp/htdocs/yii/framework/db/CDbCommand.php(1375): CDbCommand->execute()
+#1 /opt/lampp/htdocs/yii/framework/db/CDbMigration.php(275): CDbCommand->dropTable('Users')
+#2 /opt/lampp/htdocs/yii/training/protected/migrations/m140305_174906_CreateTableUnits.php(18): CDbMigration->dropTable('Users')
+#3 /opt/lampp/htdocs/yii/framework/cli/commands/MigrateCommand.php(440): m140305_174906_CreateTableUnits->down()
+#4 /opt/lampp/htdocs/yii/framework/cli/commands/MigrateCommand.php(181): MigrateCommand->migrateDown('m140305_174906_...')
+#5 [internal function]: MigrateCommand->actionRedo(Array)
+#6 /opt/lampp/htdocs/yii/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /opt/lampp/htdocs/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /opt/lampp/htdocs/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /opt/lampp/htdocs/yii/framework/base/CApplication.php(184): CConsoleApplication->processRequest()
+#10 /opt/lampp/htdocs/yii/framework/yiic.php(33): CApplication->run()
+#11 /opt/lampp/htdocs/yii/training/protected/yiic.php(7): require_once('/opt/lampp/htdo...')
+#12 /opt/lampp/htdocs/yii/training/protected/yiic(4): require_once('/opt/lampp/htdo...')
+#13 {main}
+---
+2014/03/05 23:30:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'training.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.
+2014/03/05 23:30:04 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'number NOT NULL,
+	`type` varchar(255) NOT NULL
+)' at line 4. The SQL statement executed was: CREATE TABLE `Units` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`text` varchar(255) NOT NULL,
+	`count` number NOT NULL,
+	`type` varchar(255) NOT NULL
+).
+2014/03/05 23:30:04 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'number NOT NULL,
+	`type` varchar(255) NOT NULL
+)' at line 4. The SQL statement executed was: CREATE TABLE `Units` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`text` varchar(255) NOT NULL,
+	`count` number NOT NULL,
+	`type` varchar(255) NOT NULL
+)' in /opt/lampp/htdocs/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /opt/lampp/htdocs/yii/framework/db/CDbCommand.php(1352): CDbCommand->execute()
+#1 /opt/lampp/htdocs/yii/framework/db/CDbMigration.php(250): CDbCommand->createTable('Units', Array, NULL)
+#2 /opt/lampp/htdocs/yii/training/protected/migrations/m140305_174906_CreateTableUnits.php(13): CDbMigration->createTable('Units', Array)
+#3 /opt/lampp/htdocs/yii/framework/cli/commands/MigrateCommand.php(415): m140305_174906_CreateTableUnits->up()
+#4 /opt/lampp/htdocs/yii/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m140305_174906_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /opt/lampp/htdocs/yii/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /opt/lampp/htdocs/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 /opt/lampp/htdocs/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 /opt/lampp/htdocs/yii/framework/base/CApplication.php(184): CConsoleApplication->processRequest()
+#10 /opt/lampp/htdocs/yii/framework/yiic.php(33): CApplication->run()
+#11 /opt/lampp/htdocs/yii/training/protected/yiic.php(7): require_once('/opt/lampp/htdo...')
+#12 /opt/lampp/htdocs/yii/training/protected/yiic(4): require_once('/opt/lampp/htdo...')
+#13 {main}
+---
