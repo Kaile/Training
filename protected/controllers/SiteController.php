@@ -41,6 +41,7 @@ class SiteController extends Controller
         foreach ($_POST as $key => $val) {
             $model->$key = $val;
         }
+        $model->date_create = date('Y/m/d h:i:s');
         
         try {
             $model->save();
