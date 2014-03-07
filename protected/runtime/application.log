@@ -712,3 +712,129 @@ Stack trace:
 #12 /opt/lampp/htdocs/yii/training/protected/yiic(4): require_once('/opt/lampp/htdo...')
 #13 {main}
 ---
+2014/03/06 13:41:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbConnection.php:381
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\cli\commands\MigrateCommand.php(442): CModule->getComponent('db')
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\cli\commands\MigrateCommand.php(451): MigrateCommand->getDbConnection()
+#5 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\cli\commands\MigrateCommand.php(482): MigrateCommand->getMigrationHistory(-1)
+#6 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\cli\commands\MigrateCommand.php(84): MigrateCommand->getNewMigrations()
+#7 [internal function]: MigrateCommand->actionUp(Array)
+#8 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\console\CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#9 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\console\CConsoleCommandRunner.php(67): CConsoleCommand->run(Array)
+#10 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\console\CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#11 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CConsoleApplication->processRequest()
+#12 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\yiic.php(33): CApplication->run()
+#13 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\yiic.php(7): require_once('C:\Users\mihail...')
+#14 {main}
+---
+2014/03/06 13:45:04 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbConnection.php:381
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\cli\commands\MigrateCommand.php(442): CModule->getComponent('db')
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\cli\commands\MigrateCommand.php(451): MigrateCommand->getDbConnection()
+#5 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\cli\commands\MigrateCommand.php(482): MigrateCommand->getMigrationHistory(-1)
+#6 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\cli\commands\MigrateCommand.php(84): MigrateCommand->getNewMigrations()
+#7 [internal function]: MigrateCommand->actionUp(Array)
+#8 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\console\CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#9 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\console\CConsoleCommandRunner.php(67): CConsoleCommand->run(Array)
+#10 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\console\CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#11 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CConsoleApplication->processRequest()
+#12 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\yiic.php(33): CApplication->run()
+#13 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\yiic.php(7): require_once('C:\Users\mihail...')
+#14 {main}
+---
+2014/03/06 13:46:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbConnection.php:381
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CModule.php(387): CDbConnection->init()
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\cli\commands\MigrateCommand.php(442): CModule->getComponent('db')
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\cli\commands\MigrateCommand.php(451): MigrateCommand->getDbConnection()
+#5 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\cli\commands\MigrateCommand.php(482): MigrateCommand->getMigrationHistory(-1)
+#6 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\cli\commands\MigrateCommand.php(84): MigrateCommand->getNewMigrations()
+#7 [internal function]: MigrateCommand->actionUp(Array)
+#8 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\console\CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#9 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\console\CConsoleCommandRunner.php(67): CConsoleCommand->run(Array)
+#10 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\console\CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#11 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CConsoleApplication->processRequest()
+#12 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\yiic.php(33): CApplication->run()
+#13 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\yiic.php(7): require_once('C:\Users\mihail...')
+#14 {main}
+---
+2014/03/06 15:50:49 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'training.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.
+2014/03/06 15:51:05 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'units' already exists. The SQL statement executed was: CREATE TABLE `Units` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`text` varchar(255) NOT NULL,
+	`count` int(11) NOT NULL,
+	`type` varchar(255) NOT NULL
+).
+2014/03/06 15:51:05 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'units' already exists. The SQL statement executed was: CREATE TABLE `Units` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`text` varchar(255) NOT NULL,
+	`count` int(11) NOT NULL,
+	`type` varchar(255) NOT NULL
+)' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbCommand.php(1321): CDbCommand->execute()
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbMigration.php(228): CDbCommand->createTable('Units', Array, NULL)
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\migrations\m140305_174906_CreateTableUnits.php(13): CDbMigration->createTable('Units', Array)
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\cli\commands\MigrateCommand.php(385): m140305_174906_CreateTableUnits->up()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\cli\commands\MigrateCommand.php(109): MigrateCommand->migrateUp('m140305_174906_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\console\CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\console\CConsoleCommandRunner.php(67): CConsoleCommand->run(Array)
+#8 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\console\CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#9 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CConsoleApplication->processRequest()
+#10 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\yiic.php(33): CApplication->run()
+#11 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\yiic.php(7): require_once('C:\Users\mihail...')
+#12 {main}
+---
+2014/03/06 15:51:45 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'units' already exists. The SQL statement executed was: CREATE TABLE `Units` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`text` varchar(255) NOT NULL,
+	`count` int(11) NOT NULL,
+	`type` varchar(255) NOT NULL
+).
+2014/03/06 15:51:45 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'units' already exists. The SQL statement executed was: CREATE TABLE `Units` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`text` varchar(255) NOT NULL,
+	`count` int(11) NOT NULL,
+	`type` varchar(255) NOT NULL
+)' in C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbCommand.php(1321): CDbCommand->execute()
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\db\CDbMigration.php(228): CDbCommand->createTable('Units', Array, NULL)
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\migrations\m140305_174906_CreateTableUnits.php(13): CDbMigration->createTable('Units', Array)
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\cli\commands\MigrateCommand.php(385): m140305_174906_CreateTableUnits->up()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\cli\commands\MigrateCommand.php(109): MigrateCommand->migrateUp('m140305_174906_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\console\CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\console\CConsoleCommandRunner.php(67): CConsoleCommand->run(Array)
+#8 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\console\CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#9 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CConsoleApplication->processRequest()
+#10 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\yiic.php(33): CApplication->run()
+#11 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\yiic.php(7): require_once('C:\Users\mihail...')
+#12 {main}
+---
+2014/03/06 18:47:20 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: '06/03/2014' for column 'date_create' at row 1. The SQL statement executed was: INSERT INTO `Units` (`text`, `count`, `type`, `date_create`) VALUES (:yp0, :yp1, :yp2, :yp3).
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php (47)
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php (12)
+2014/03/07 09:11:07 [error] [php] Object of class DateTime could not be converted to string (C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php:49)
+Stack trace:
+#0 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\Users\mihail\Documents\NetBeansProjects\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php(12): CWebApplication->run()
+REQUEST_URI=/index.php/site/addUnit
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\protected\controllers\SiteController.php (49)
+in C:\Users\mihail\Documents\NetBeansProjects\yii\Training\index.php (12)

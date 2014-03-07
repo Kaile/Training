@@ -14,7 +14,7 @@ $this->pageTitle=Yii::app()->name;
             <?php echo CHtml::textField('text', '', array('id' => 'inputAdd')); ?>
         </span>
         <span class="unitNumber">
-            <?php echo CHtml::textField('count', '1') ?>
+            <?php echo CHtml::textField('count', '1', array('id' => 'countAdd')) ?>
         </span>
         <span class="unitType">
             <?php 
