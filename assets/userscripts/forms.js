@@ -5,10 +5,11 @@
  */
 
 $(document).ready(function() {
+    include('/assets/userscripts/jquery.dataTables.min.js');
     $('#btnAdd').live('click', function() {
         $.ajax({
             dataType: 'text',
-            url: location.href + 'index.php/site/addUnit',
+            url: location.origin + '/index.php/site/addUnit',
             type: 'POST',
             data: $(this).parents('form').serialize(),
             cache: false,

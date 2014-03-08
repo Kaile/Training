@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery.dataTables.css" />
     
     <script type="text/javascript" src="/assets/ad89bce9/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/userscripts/include.js"></script>
     
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>

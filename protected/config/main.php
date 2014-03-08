@@ -43,14 +43,17 @@ return array(
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		),
-        // uncomment the following to use a MySQL database
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=training',
-			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => 'root',
-			'charset' => 'utf8',
+			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),
+        // uncomment the following to use a MySQL database
+		// 'db'=>array(
+		// 	'connectionString' => 'mysql:host=localhost;dbname=training',
+		// 	'emulatePrepare' => true,
+		// 	'username' => 'root',
+		// 	'password' => 'root',
+		// 	'charset' => 'utf8',
+		// ),
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
