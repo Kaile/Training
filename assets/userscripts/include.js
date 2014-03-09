@@ -15,7 +15,7 @@ var included = [];
 	Include only one script per time
 	@param String path - path to <file>.js
 */
-function include(path) {
+function include(path, callback) {
 	for (var i = included.length - 1; i >= 0; i--) {
 		if (included[i] == path) {
 			alert('The file ' + path + ' already included');
@@ -28,6 +28,7 @@ function include(path) {
 		assync: false,
 		success: function() {
 			included.push(path);
+			callback;
 		},
 		error: function() {
 			alert('The file ' + path + ' can\'t include because error occur');
