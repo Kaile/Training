@@ -4,7 +4,6 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 <script type="text/javascript" src="/assets/userscripts/forms.js"></script>
-<script type="text/javascript" src="/assets/userscripts/jquery.dataTables.min.js"></script>
 <h2 style="text-align: center">Добавить новое мероприятие</h2>
 <form method="POST" action="/">
 
