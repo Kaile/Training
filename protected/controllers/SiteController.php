@@ -46,9 +46,10 @@ class SiteController extends Controller
         
         try {
             $model->save();
-            echo Yii::app()->request->getPost('text') . '*-' .
-            intval(Yii::app()->request->getPost('count')) . '*-' .
-                 Yii::app()->request->getPost('type');
+            echo $model->text . '*-' .
+            intval($model->count) . '*-' .
+            $model->type . '*-' .
+            $model->id;
         } catch (CDbException $e) {
             echo 'Error occur: ' . $e->getMessage();
         }

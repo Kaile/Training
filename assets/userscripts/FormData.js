@@ -13,14 +13,26 @@
     Object constructor
     Sets defaults values for ajax requests
 */
-function FormData() {
-    
-};
+function FormData() {};
 
 FormData.prototype.dataType = 'text';
 FormData.prototype.url = location.origin;
 FormData.prototype.requestType = 'POST';
 FormData.prototype.cache = false;
+
+/*
+    Have run on success response
+*/
+FormData.prototype.successResponse = function(data, textStatus, jqXHR) {
+    alert('data requested successfully');
+};
+
+/*
+    Have run on error response
+*/
+FormData.prototype.errorResponse = function(jqXHR, textStatus, errorThrown) {
+    alert('error occur');
+};
 
 /*
     Sends request to the server and after success response
@@ -38,31 +50,50 @@ FormData.prototype.send = function (url, selector) {
     
     var selector = selector || 'button';
     var form = $(selector).parents('form');
+    var self = this;
     if (form.length) {
         $.ajax({
-            dataType: this.dataType,
-            url: this.url,
-            type: this.requestType,
+            dataType: self.dataType,
+            url: self.url,
+            type: self.requestType,
             data: form.serialize(),
-            cache: this.cache,
-            success: this.success(),
-            error: this.error()
+            cache: self.cache,
+            success: function(data, textStatus, jqXHR) {
+                self.successResponse(data, textStatus, jqXHR);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                self.errorResponse(jqXHR, textStatus, errorThrown);
+            },
+            complete: function() {
+                delete url;
+                delete selector;
+                delete form;
+                delete self;
+            }
         });
     } else {
         alert('error in case selector ' + selector);
     }
 };
 
-/*
-    Have run on success response
-*/
-FormData.prototype.success = function() {
-    alert('data requested successfully');
-};
 
-/*
-    Have run on error response
-*/
-FormData.prototype.error = function() {
-    alert('error occur');
-};
+// *************************************************************
+ConcreeteFormData = function() {};
+
+ConcreeteFormData.prototype = new FormData();
+
+ConcreeteFormData.prototype.successResponse = function(data) {   
+    var data = data || '1';
+    if ($('#unitList').length) {
+        $('#units').dataTable().fnAddData(data.split('*-'));
+        $('#inputAdd').val('');
+        $('#countAdd').val('1');
+    } else {
+        // Если же таблицы нет, после отсылки данных на сервер, обновляем страницу
+        location.reload();
+    }
+}
+
+ConcreeteFormData.prototype.errorResponse = function() {
+    alert('Добавление записи не было выполнено. Ошибка сервера.');
+}

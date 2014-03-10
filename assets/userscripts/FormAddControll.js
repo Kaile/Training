@@ -11,23 +11,10 @@ $(document).ready(function() {
     // Запрет на ввод нецифровых данных в числовое поле
     // $('input.isNumeric').live('keydown', funtion());
     
-    var ss = new FormData();
+    var ss = new ConcreeteFormData();
 
     // Реакция на клик по кнопке добавления новой записи
-    $('#btnAdd').live('click', ss.send('/index.php/site/addunit', '#btnAdd'));
-        /*function(data, textStatus, jqXHR) {
-            // В случае существования непустой таблицы, добавляем новую строку
-            if ($('#unitList').length) {
-                $('#units').dataTable().fnAddData(data.split('*-'));
-                $('#inputAdd').val('');
-                $('#countAdd').val('1');
-            } else {
-                // Если же таблицы нет, после отсылки данных на сервер, обновляем страницу
-                location.reload();
-            }
-        }
-        function(jqXHR, textStatus, errorThrown) {
-            alert('Добавление записи не было выполнено. Ошибка сервера.');
-        }*/
-    
+    $('#btnAdd').live('click', function() {
+        ss.send('/index.php/site/addunit', '#btnAdd');
+    });
 });

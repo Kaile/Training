@@ -47,6 +47,7 @@ $this->pageTitle=Yii::app()->name;
                 <th>Название мероприятия</th>
                 <th>Количество</th>
                 <th>Единицы</th>
+                <th>Удалить</th>
             </thead>
             <tbody>
                 <?php foreach ($statistic as $val): ?>
@@ -54,6 +55,7 @@ $this->pageTitle=Yii::app()->name;
                         <td><?php echo $val->text; ?></td>
                         <td><?php echo intval($val->count); ?></td>
                         <td><?php echo $val->type; ?></td>
+                        <td id="<?php echo $val->id; ?>"><?php echo CHtml::button('X', array('id' => 'delRow', )); ?></td>
                     </tr>
                 <?php endforeach ?>
             </tbody>
