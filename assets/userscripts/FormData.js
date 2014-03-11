@@ -17,7 +17,6 @@
 function FormData() {};
 
 FormData.prototype.dataType = 'text';
-FormData.prototype.url = location.origin;
 FormData.prototype.requestType = 'POST';
 FormData.prototype.cache = false;
 
@@ -51,9 +50,9 @@ FormData.prototype.errorResponse = function(jqXHR, textStatus, errorThrown) {
  *  If document does't have forms alert with error message shows
  * 
  */
-FormData.prototype.send = function (url, selector) {
+FormData.prototype.sendForm = function(url, selector) {
     var url = url || '/';
-    this.url += url;
+    url = location.origin + url;
     
     var selector = selector || 'button';
     var form = $(selector).parents('form');
@@ -61,7 +60,7 @@ FormData.prototype.send = function (url, selector) {
     if (form.length) {
         $.ajax({
             dataType: self.dataType,
-            url: self.url,
+            url: url,
             type: self.requestType,
             data: form.serialize(),
             cache: self.cache,
@@ -83,7 +82,35 @@ FormData.prototype.send = function (url, selector) {
     }
 };
 
+FormData.prototype.deleteRow = function(url, params) {
+    var url = url || '/';
+    url = location.origin + url;
+    
+    var params = params || '1';
 
+    var self = this;
+
+    $.ajax({
+        dataType: self.dataType,
+        url: url,
+        type: self.requestType,
+        data: params,
+        cache: self.cache,
+        success: function(data, textStatus, jqXHR) {
+            self.successResponse(data, textStatus, jqXHR);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            self.errorResponse(jqXHR, textStatus, errorThrown);
+        },
+        complete: function() {
+            delete url;
+            delete self;
+            delete params;
+        }
+    });
+};
+    
+    
 // *************************************************************
 ConcreeteFormData = function() {};
 

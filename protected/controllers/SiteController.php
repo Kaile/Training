@@ -49,9 +49,16 @@ class SiteController extends Controller
             echo $model->text . '*-' .
             intval($model->count) . '*-' .
             $model->type . '*-' .
-            $model->id;
+            CHtml::button('X', array('class' => 'delRow', 'id' => $model->id ));
         } catch (CDbException $e) {
             echo 'Error occur: ' . $e->getMessage();
         }
+    }
+    
+    public function actionDelUnit() {
+        $model = new Units();
+        
+        $model->deleteByPk(Yii::app()->request->getPost('id'));
+        
     }
 }

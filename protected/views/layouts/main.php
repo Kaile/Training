@@ -19,7 +19,6 @@
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery.dataTables.css" />
     
     <script type="text/javascript" src="http://yandex.st/jquery/1.8.3/jquery.min.js"></script>
-    <script type="text/javascript" src="/assets/userscripts/require.min.js"></script>
     
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
