@@ -2,11 +2,10 @@
     FormData is a class that working with forms 
     and controls.
 
-    author: "Mihail Kornilov"
-    email:  "fix-06 at yandex dot ru
+    @author: Mihail Kornilov fix-06 at yandex dot ru
 
-    @since:  v0.1 
-    dependence: jQuery.js
+    @since:  v0.2
+    @dependence: jQuery.js
  */
 
 /**
@@ -19,6 +18,45 @@ function FormData() {};
 FormData.prototype.dataType = 'text';
 FormData.prototype.requestType = 'POST';
 FormData.prototype.cache = false;
+
+/*
+* Function send the requests. Used by other FormData functions
+* @param {String} urlAddress - url where data is sending
+* @param {String} sendingData - data that sended to server
+* @param {Callback} successFunction - callback function that run if request is done
+* @param {Callback} errorFunction - callback function that run if request is bad
+*/
+FormData.prototype.sendRequest = function(urlAddress, sendingData, successFunction, errorFunction) {
+    var urlAddress = urlAddress || '/';
+    urlAddress = location.origin + urlAddress;
+
+    var successFunction = successFunction || this.successResponse;
+
+    var errorFunction   = errorFunction || this.errorResponse;
+    
+    var sendingData = sendingData || null;
+
+    var self = this;
+
+    $.ajax({
+        dataType: self.dataType,
+        url: urlAddress,
+        type: self.requestType,
+        data: sendingData,
+        cache: self.cache,
+        success: function(data, textStatus, jqXHR) {
+            successFunction(data, textStatus, jqXHR);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            errorFunction(jqXHR, textStatus, errorThrown);
+        },
+        complete: function() {
+            delete urlAddress;
+            delete self;
+            delete sendingData;
+        }
+    });
+};
 
 /**
  * Have run on success response
@@ -51,63 +89,17 @@ FormData.prototype.errorResponse = function(jqXHR, textStatus, errorThrown) {
  * 
  */
 FormData.prototype.sendForm = function(url, selector) {
-    var url = url || '/';
-    url = location.origin + url;
-    
-    var selector = selector || 'button';
     var form = $(selector).parents('form');
-    var self = this;
+    
     if (form.length) {
-        $.ajax({
-            dataType: self.dataType,
-            url: url,
-            type: self.requestType,
-            data: form.serialize(),
-            cache: self.cache,
-            success: function(data, textStatus, jqXHR) {
-                self.successResponse(data, textStatus, jqXHR);
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                self.errorResponse(jqXHR, textStatus, errorThrown);
-            },
-            complete: function() {
-                delete url;
-                delete selector;
-                delete form;
-                delete self;
-            }
-        });
+        this.sendRequest(url, form.serialize());
     } else {
         alert('error in case selector ' + selector);
     }
 };
 
 FormData.prototype.deleteRow = function(url, params) {
-    var url = url || '/';
-    url = location.origin + url;
-    
-    var params = params || '1';
-
-    var self = this;
-
-    $.ajax({
-        dataType: self.dataType,
-        url: url,
-        type: self.requestType,
-        data: params,
-        cache: self.cache,
-        success: function(data, textStatus, jqXHR) {
-            self.successResponse(data, textStatus, jqXHR);
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            self.errorResponse(jqXHR, textStatus, errorThrown);
-        },
-        complete: function() {
-            delete url;
-            delete self;
-            delete params;
-        }
-    });
+    this.sendRequest(url, params, this.deleteResponse);
 };
     
     
