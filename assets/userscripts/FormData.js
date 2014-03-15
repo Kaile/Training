@@ -4,7 +4,7 @@
 
     @author: Mihail Kornilov fix-06 at yandex dot ru
 
-    @since:  v0.2
+    @since:  v0.3
     @dependence: jQuery.js
  */
 
@@ -92,23 +92,42 @@ FormData.prototype.sendForm = function(url, selector) {
     var form = $(selector).parents('form');
     
     if (form.length) {
-        this.sendRequest(url, form.serialize());
+        this.sendRequest(
+                url, 
+                form.serialize(),
+                this.successSendForm,
+                this.errorSendForm
+            );
     } else {
         alert('error in case selector ' + selector);
     }
 };
 
+
 FormData.prototype.deleteRow = function(url, params) {
-    this.sendRequest(url, params, this.deleteResponse);
+    this.sendRequest(
+            url, 
+            params, 
+            this.deleteResponse
+        );
 };
     
+
+FormData.prototype.successSendForm  = function(data, textStatus, jqXHR) {
+    alert('Form data has been successfully sended');
+}
+
+FormData.prototype.errorSendForm  = function(jqXHR, textStatus, errorThrown) {
+    alert('Form data hasn\'t  sended');
+}
+
     
 // *************************************************************
 ConcreeteFormData = function() {};
 
 ConcreeteFormData.prototype = new FormData();
 
-ConcreeteFormData.prototype.successResponse = function(data) {   
+ConcreeteFormData.prototype.successSendForm = function(data) {   
     var data = data || '1';
     // Проверяем есть ли идентификатор, который хранит таблицу с данными
     if ($('#unitList').length) {
@@ -121,6 +140,6 @@ ConcreeteFormData.prototype.successResponse = function(data) {
     }
 };
 
-ConcreeteFormData.prototype.errorResponse = function() {
+ConcreeteFormData.prototype.errorSendForm = function() {
     alert('Добавление записи не было выполнено. Ошибка сервера.');
 };
