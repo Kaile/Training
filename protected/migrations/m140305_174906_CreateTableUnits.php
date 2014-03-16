@@ -4,13 +4,13 @@ class m140305_174906_CreateTableUnits extends CDbMigration
 {
 	public function up()
 	{
-            $columns = array(
-                'id' => 'pk',
-                'text' => 'string NOT NULL',
-                'count' => 'integer NOT NULL',
-                'type' => 'string NOT NULL'
-            );
-            $this->createTable('Units', $columns);
+        $columns = array(
+            'id' => 'pk',
+            'text' => 'string NOT NULL',
+            'count' => 'integer NOT NULL',
+            'type' => 'string NOT NULL'
+        );
+        $this->createTable('Units', $columns);
 	}
 
 	public function down()
