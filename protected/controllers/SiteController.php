@@ -12,9 +12,14 @@ class SiteController extends Controller {
     public function actionIndex() {
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
-        $model = new Units();
+        $model = Units::model();
 
-        $statistic = $model->findAll();
+        $criteria = new CDbCriteria();
+        
+        $criteria->join = 'LEFT JOIN UnitTypes s ON t.type = s.id';
+        $criteria->select = 't.text, t.count, s.name_ru as type';
+        
+        $statistic = $model->findAll($criteria);
 
         $this->render('index', array('statistic' => $statistic));
     }
@@ -33,27 +38,32 @@ class SiteController extends Controller {
     }
 
     public function actionAddUnit() {
-        $model = new Units();
+        $model = Units::model();
 
-        foreach ($_POST as $key => $val) {
-            $model->$key = $val;
-        }
-        $date = new DateTime(null);
-        $date->format(DateTime::ATOM);
+        $model->text = Yii::app()->request->getPost('text');
+        $model->count = Yii::app()->request->getPost('count');
+        
+        $unittypes = new UnitTypes();
+        
+//        $unittypes->findByAttributes(array('type' => Yii::app()->request->getPost('type')));
+        
+        $model->type = 1;
+        
+//        $date = new DateTime(null);
+//        $date->format(DateTime::ATOM);
 
-        try {
-            $model->save();
+        if ($model->save()) {
             echo $model->text . '*-' .
             intval($model->count) . '*-' .
             $model->type . '*-' .
             CHtml::button('X', array('class' => 'delRow', 'id' => $model->id));
-        } catch (CDbException $e) {
-            echo 'Error occur: ' . $e->getMessage();
+        } else {
+            echo 'Can\'t save bad data';
         }
     }
 
     public function actionDelUnit() {
-        $model = new Units();
+        $model = Units::model();
 
         $model->deleteByPk(Yii::app()->request->getPost('id'));
     }

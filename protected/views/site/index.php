@@ -22,8 +22,8 @@ $this->pageTitle=Yii::app()->name;
             <?php 
                 $list = array('Выбрать единицу' => array(
                                     'hour' => 'часы',
-                                    'unit' => 'штуки',
-                                    'bout' => 'разы',
+                                    'bout' => 'штуки',
+                                    'time' => 'разы',
                                  )
                              );
                 echo CHtml::dropDownList('type', '', $list);
@@ -36,7 +36,8 @@ $this->pageTitle=Yii::app()->name;
 </form>
 
 
-<?php if (!empty($statistic)):?>
+<?php 
+    if (!empty($statistic)):?>
     <br><br>
     <hr style="width: 96%; margin: auto">
     <br><br>
