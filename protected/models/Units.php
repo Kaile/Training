@@ -14,4 +14,11 @@ class Units extends CActiveRecord {
     public function primaryKey() {
         return 'id';
     }
+    
+    public function relations() {
+        return array(
+            'Units' => array(self::BELONGS_TO, 'UnitTypes', 'id')
+        );
+    }
+
 } 

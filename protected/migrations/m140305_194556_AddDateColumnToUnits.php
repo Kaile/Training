@@ -1,25 +1,23 @@
 <?php
 
-class m140305_194556_AddDateColumnToUnits extends CDbMigration
-{
-	public function up()
-	{
-            $this->addColumn('Units', 'date_create', 'datetime');
-	}
+class m140305_194556_AddDateColumnToUnits extends CDbMigration {
 
-	public function down()
-	{
-		$this->dropColumn('Units', 'date_create');
-	}
+    public function up() {
+        $this->addColumn('Units', 'date_create', 'datetime');
+    }
 
-	/*
-	// Use safeUp/safeDown to do migration with transaction
-	public function safeUp()
-	{
-	}
+    public function down() {
+        $this->dropColumn('Units', 'date_create');
+    }
 
-	public function safeDown()
-	{
-	}
-	*/
+    /*
+      // Use safeUp/safeDown to do migration with transaction
+      public function safeUp()
+      {
+      }
+
+      public function safeDown()
+      {
+      }
+     */
 }
