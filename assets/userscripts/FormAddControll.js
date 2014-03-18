@@ -31,6 +31,6 @@ $(document).ready(function() {
                 function() {
                     alert('Невозможно удалить запись.');
                 }
-            )
+            );
     });
 });

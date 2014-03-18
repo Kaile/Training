@@ -16,7 +16,7 @@ class SiteController extends Controller {
         $criteria = new CDbCriteria();
         
         $criteria->join = 'LEFT JOIN UnitTypes s ON t.type = s.id';
-        $criteria->select = 't.text, t.count, s.name_ru as type';
+        $criteria->select = 't.id, t.text, t.count, s.name_ru as type';
         
         $statistic = Units::model()->findAll($criteria);
         
@@ -63,7 +63,10 @@ class SiteController extends Controller {
     }
 
     public function actionDelUnit() {
-        Units::model()->deleteByPk(Yii::app()->request->getPost('id'));
+        $model = new Units();
+        if (!$model->deleteByPk(Yii::app()->request->getPost('id'))) {
+            echo 'Don\'t delete row';
+        }
     }
 
 }
