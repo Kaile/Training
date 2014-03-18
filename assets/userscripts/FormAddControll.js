@@ -8,9 +8,6 @@ $(document).ready(function() {
     // Превращаем обычную таблицу в крутую
     var table = $('#units').dataTable();
     
-    // Запрет на ввод нецифровых данных в числовое поле
-    // $('input.isNumeric').live('keydown', funtion());
-    
     var cfd = new ConcreeteFormData();
 
     // Реакция на клик по кнопке добавления новой записи
@@ -32,5 +29,21 @@ $(document).ready(function() {
                     alert('Невозможно удалить запись.');
                 }
             );
+    });
+    
+    // Реакция на клик по кнопке инкремента или декремента счетчика
+    $('.changeCount').live('click', function() {
+        var self = this;
+        
+        cfd.sendRequest(
+                    '/index.php/site/changeCount',
+                    {
+                        id: $(self).attr('id'),
+                        op: $(self).attr('op')
+                    },
+                    function (data) {
+                        $(self).prevAll('span').html(data);
+                    }
+                );
     });
 });

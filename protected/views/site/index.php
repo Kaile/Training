@@ -46,16 +46,21 @@ $this->pageTitle=Yii::app()->name;
             <thead>
                 <th>Название мероприятия</th>
                 <th>Количество</th>
-                <th>Единицы</th>
+                <th>Единица</th>
                 <th>Операция</th>
             </thead>
             <tbody>
                 <?php foreach ($statistic as $val): ?>
                     <tr>
                         <td><?php echo $val->text; ?></td>
-                        <td><?php echo intval($val->count); ?></td>
+                        <td><?php 
+                            echo '<span>' . intval($val->count) . '</span>';
+                            echo '&nbsp;&nbsp;';
+                            echo CHtml::button('+', array('class' => 'changeCount', 'op' => 'inc', 'id' => $val->id));
+                            echo CHtml::button('--', array('class' => 'changeCount', 'op' => 'dec', 'id' => $val->id));
+                        ?></td>
                         <td><?php echo $val->type; ?></td>
-                        <td><?php echo CHtml::button('X', array('class' => 'delRow', 'id' => $val->id)); ?></td>
+                        <td><?php echo CHtml::button(' X ', array('class' => 'delRow', 'id' => $val->id)); ?></td>
                     </tr>
                 <?php endforeach ?>
             </tbody>

@@ -136,7 +136,7 @@ ConcreeteFormData.prototype.successSendForm = function(data) {
         $('#countAdd').val('1');
     } else {
         // Если же таблицы нет, после отсылки данных на сервер, обновляем страницу
-       // location.reload();
+        location.reload();
     }
 };
 

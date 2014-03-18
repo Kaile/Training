@@ -65,5 +65,24 @@ class SiteController extends Controller {
             echo 'Don\'t delete row';
         }
     }
+    
+    public function actionChangeCount() {
+        $record = Units::model()->findByPk(Yii::app()->request->getPost('id'));
+        if ($record == NULL) {
+            throw new CDbException('Not found the record');
+        }
+        
+        if (Yii::app()->request->getPost('op') == 'inc') {
+            ++$record->count;
+        } elseif ($record->count != 0) {
+            --$record->count;
+        }
+        
+        if ($record->save()) {
+            echo $record->count;
+        } else {
+            throw new CDbException('Can\'t save changed value');
+        }
+    }
 
 }
