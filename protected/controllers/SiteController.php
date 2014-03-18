@@ -12,16 +12,17 @@ class SiteController extends Controller {
     public function actionIndex() {
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
-        $model = Units::model();
 
         $criteria = new CDbCriteria();
         
         $criteria->join = 'LEFT JOIN UnitTypes s ON t.type = s.id';
         $criteria->select = 't.text, t.count, s.name_ru as type';
         
-        $statistic = $model->findAll($criteria);
+        $statistic = Units::model()->findAll($criteria);
+        
+        $unittypes = UnitTypes::model()->findAll();
 
-        $this->render('index', array('statistic' => $statistic));
+        $this->render('index', array('statistic' => $statistic, 'unittypes' => $unittypes));
     }
 
     /**
@@ -38,34 +39,31 @@ class SiteController extends Controller {
     }
 
     public function actionAddUnit() {
-        $model = Units::model();
+        $model = new Units();
 
         $model->text = Yii::app()->request->getPost('text');
         $model->count = Yii::app()->request->getPost('count');
         
-        $unittypes = new UnitTypes();
+       $unittypes = UnitTypes::model()->findByAttributes(array('type' => Yii::app()->request->getPost('type')));
         
-//        $unittypes->findByAttributes(array('type' => Yii::app()->request->getPost('type')));
-        
-        $model->type = 1;
+        $model->type = $unittypes->id;
         
 //        $date = new DateTime(null);
 //        $date->format(DateTime::ATOM);
 
         if ($model->save()) {
-            echo $model->text . '*-' .
-            intval($model->count) . '*-' .
-            $model->type . '*-' .
-            CHtml::button('X', array('class' => 'delRow', 'id' => $model->id));
+            echo
+                $model->text . '*-' .
+                intval($model->count) . '*-' .
+                $unittypes->name_ru . '*-' .
+                CHtml::button('X', array('class' => 'delRow', 'id' => $model->id));
         } else {
             echo 'Can\'t save bad data';
         }
     }
 
     public function actionDelUnit() {
-        $model = Units::model();
-
-        $model->deleteByPk(Yii::app()->request->getPost('id'));
+        Units::model()->deleteByPk(Yii::app()->request->getPost('id'));
     }
 
 }

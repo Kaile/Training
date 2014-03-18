@@ -17,5 +17,8 @@ class UnitTypes extends CActiveRecord {
         return parent::model($className);
     }
 
-    
+    public function getPrimaryKey() {
+        return 'id';
+    }
+
 }

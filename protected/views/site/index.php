@@ -20,12 +20,11 @@ $this->pageTitle=Yii::app()->name;
         </span>
         <span class="unitType">
             <?php 
-                $list = array('Выбрать единицу' => array(
-                                    'hour' => 'часы',
-                                    'bout' => 'штуки',
-                                    'time' => 'разы',
-                                 )
-                             );
+                $arrlist = array();
+                foreach ($unittypes as $val) {
+                    $arrlist[$val->type] = $val->name_ru;
+                }
+                $list = array('Выбрать единицу' => $arrlist);
                 echo CHtml::dropDownList('type', '', $list);
             ?>
         </span>
