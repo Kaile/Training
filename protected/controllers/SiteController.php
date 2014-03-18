@@ -44,12 +44,9 @@ class SiteController extends Controller {
         $model->text = Yii::app()->request->getPost('text');
         $model->count = Yii::app()->request->getPost('count');
         
-       $unittypes = UnitTypes::model()->findByAttributes(array('type' => Yii::app()->request->getPost('type')));
+        $unittypes = UnitTypes::model()->findByAttributes(array('type' => Yii::app()->request->getPost('type')));
         
         $model->type = $unittypes->id;
-        
-//        $date = new DateTime(null);
-//        $date->format(DateTime::ATOM);
 
         if ($model->save()) {
             echo
