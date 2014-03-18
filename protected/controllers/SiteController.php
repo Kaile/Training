@@ -51,7 +51,10 @@ class SiteController extends Controller {
         if ($model->save()) {
             echo
                 $model->text . '*-' .
-                intval($model->count) . '*-' .
+                '<span>' . intval($model->count) . '</span>' .
+                '&nbsp;&nbsp;' .
+                CHtml::button('+', array('class' => 'changeCount', 'op' => 'inc', 'id' => $model->id)) .
+                CHtml::button('--', array('class' => 'changeCount', 'op' => 'dec', 'id' => $model->id)) . '*-' .
                 $unittypes->name_ru . '*-' .
                 CHtml::button('X', array('class' => 'delRow', 'id' => $model->id));
         } else {
