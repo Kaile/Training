@@ -7,12 +7,12 @@ $this->pageTitle=Yii::app()->name;
 <script type="text/javascript" src="/assets/userscripts/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="/assets/userscripts/FormData.js"></script>
 
-<h2 style="text-align: center">Добавить новое мероприятие</h2>
+<h2 style="text-align: center">Добавить новое что-то</h2>
 <form method="POST" action="/">
 
     <div id="forAdd">
         <span class="unitText">
-            <?php echo CHtml::label('Введите сюда свое новое мероприятие', 'text'); ?><br>
+            <?php echo CHtml::label('Введите сюда свое новое что-то', 'text'); ?><br>
             <?php echo CHtml::textField('text', '', array('id' => 'inputAdd')); ?>
         </span>
         <span class="unitNumber">
@@ -40,7 +40,7 @@ $this->pageTitle=Yii::app()->name;
     <br><br>
     <hr style="width: 96%; margin: auto">
     <br><br>
-    <h2 style="text-align: center">Список мероприятий</h2>
+    <h2 style="text-align: center">Список чего-то</h2>
     <div id="unitList">
         <table id="units">
             <thead>

@@ -23,7 +23,7 @@ span {
 }
 
 #textAdd {
-    width: 500px;
+    width: 70%;
     font-family: "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
     font-style: italic;
     color: #999;
@@ -36,7 +36,7 @@ span {
 
 #numAdd {
     text-align: center;
-    width: 30px;
+    width: 15%;
 }
 
 .btnAdd {
