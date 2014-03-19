@@ -4,7 +4,42 @@
  * Class SiteController
  */
 class SiteController extends Controller {
-
+    
+    /**
+     * This finction need to generate string that contained start date that 
+     * creating that nearest day $day of week from current date, and end 
+     * date that formed that offset by $offset days from start date.
+     * @param integer $day
+     * @param integer $offset
+     * @return string date diff from start date to date that is offseting 
+     *          from start date
+     */
+    private function getWeekDateDiff($day = 0, $offset = 7) {
+        if ($day < 0 || $day > 6) {
+            $day = 0;
+        }
+        if ($offset < 0) {
+            $offset = 0;
+        }
+        $startDate           = new DateTime();
+        $currDateDescription = getdate();
+        
+        $currDayOffset = $day - $currDateDescription['wday'];
+        
+        ($currDayOffset <= 0) ? $currDayOffset = abs($currDayOffset) : $currDayOffset = 7 - $currDayOffset;
+        
+        $dateInterval = new DateInterval('P' . $currDayOffset . 'D');
+       
+        $startDate->sub($dateInterval);
+        
+        $dateInterval->d = $offset;
+        
+        $endDate = clone $startDate;
+        $endDate->add($dateInterval);
+        
+        return date_format($startDate, 'Y/m/d') . ' - ' . date_format($endDate, 'Y/m/d');
+    }
+    
     /**
      * This is the default 'index' action that is invoked
      * when an action is not explicitly requested by users.
@@ -17,12 +52,16 @@ class SiteController extends Controller {
         
         $criteria->join = 'LEFT JOIN UnitTypes s ON t.type = s.id';
         $criteria->select = 't.id, t.text, t.count, s.name_ru as type';
+        $criteria->condition = 'date_create >= "' . split(' - ', $this->getWeekDateDiff(2))[0] . ' 00:00:00"';
+        $criteria->condition .= 'AND date_create <= "' . split(' - ', $this->getWeekDateDiff(2))[1] . ' 00:00:00"';
         
         $statistic = Units::model()->findAll($criteria);
         
         $unittypes = UnitTypes::model()->findAll();
+        
+        $date = $this->getWeekDateDiff(3);
 
-        $this->render('index', array('statistic' => $statistic, 'unittypes' => $unittypes));
+        $this->render('index', array('statistic' => $statistic, 'unittypes' => $unittypes, 'date' => $date));
     }
 
     /**
@@ -47,6 +86,8 @@ class SiteController extends Controller {
         $unittypes = UnitTypes::model()->findByAttributes(array('type' => Yii::app()->request->getPost('type')));
         
         $model->type = $unittypes->id;
+        
+        $model->date_create = date('Y/m/d h:i:s');                                  //new CDbExpression('NOW()');
 
         if ($model->save()) {
             echo

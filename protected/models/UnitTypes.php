@@ -20,5 +20,4 @@ class UnitTypes extends CActiveRecord {
     public function getPrimaryKey() {
         return 'id';
     }
-
 }

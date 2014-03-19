@@ -40,7 +40,7 @@ $this->pageTitle=Yii::app()->name;
     <br><br>
     <hr style="width: 96%; margin: auto">
     <br><br>
-    <h2 style="text-align: center">Список чего-то</h2>
+    <h2 style="text-align: center">Список чего-то (<?php echo $date ?>)</h2>
     <div id="unitList">
         <table id="units">
             <thead>
@@ -60,7 +60,7 @@ $this->pageTitle=Yii::app()->name;
                             echo CHtml::button('--', array('class' => 'changeCount', 'op' => 'dec', 'id' => $val->id));
                         ?></td>
                         <td><?php echo $val->type; ?></td>
-                        <td><?php echo CHtml::button(' X ', array('class' => 'delRow', 'id' => $val->id)); ?></td>
+                        <td><?php echo CHtml::button('X', array('class' => 'delRow', 'id' => $val->id)); ?></td>
                     </tr>
                 <?php endforeach ?>
             </tbody>
