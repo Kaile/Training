@@ -47,19 +47,21 @@ class SiteController extends Controller {
     public function actionIndex() {
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
-
-        $criteria = new CDbCriteria();
+        define('DAY_BEGIN', 2);
         
+        $arrDate = split(' - ', $this->getWeekDateDiff(DAY_BEGIN));
+        
+        $criteria = new CDbCriteria();
         $criteria->join = 'LEFT JOIN UnitTypes s ON t.type = s.id';
         $criteria->select = 't.id, t.text, t.count, s.name_ru as type';
-        $criteria->condition = 'date_create >= "' . split(' - ', $this->getWeekDateDiff(2))[0] . ' 00:00:00"';
-        $criteria->condition .= 'AND date_create <= "' . split(' - ', $this->getWeekDateDiff(2))[1] . ' 00:00:00"';
+        $criteria->condition = 'date_create >= "' . $arrDate[0] . ' 00:00:00"';
+        $criteria->condition .= 'AND date_create <= "' . $arrDate[1] . ' 00:00:00"';
         
         $statistic = Units::model()->findAll($criteria);
         
         $unittypes = UnitTypes::model()->findAll();
         
-        $date = $this->getWeekDateDiff(3);
+        $date = str_replace('/', '.', $this->getWeekDateDiff(DAY_BEGIN));
 
         $this->render('index', array('statistic' => $statistic, 'unittypes' => $unittypes, 'date' => $date));
     }
