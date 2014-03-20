@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class SiteController
+ * Class SiteController is the base controller of this resourse
  */
 class SiteController extends Controller {
 
@@ -21,7 +21,7 @@ class SiteController extends Controller {
      * @return string date diff from start date to date that is offseting 
      *          from start date
      */
-    private function getWeekDateInterval($day = 0, $offset = 7, $defDate = 'now', $separator = ' - ') {
+    public function getWeekDateInterval($day = 0, $offset = 7, $defDate = 'now', $separator = ' - ') {
         if ($day < 0 || $day > 6) {
             $day = 0;
         }
@@ -68,9 +68,7 @@ class SiteController extends Controller {
 
         $unittypes = UnitTypes::model()->findAll();
 
-        $date = str_replace('/', '.', $this->getWeekDateInterval(DAY_BEGIN));
-
-        $this->render('index', array('statistic' => $statistic, 'unittypes' => $unittypes, 'date' => $date));
+        $this->render('index', array('statistic' => $statistic, 'unittypes' => $unittypes));
     }
 
     /**
@@ -86,6 +84,10 @@ class SiteController extends Controller {
         }
     }
 
+    /**
+     * This is the action to handle external requests for adding new unit in
+     * database table
+     */
     public function actionAddUnit() {
         $model = new Units();
 
@@ -112,6 +114,10 @@ class SiteController extends Controller {
         }
     }
 
+    /**
+     * This is the action that delete row from Units table in the database
+     * by identificator that transmits by request
+     */
     public function actionDelUnit() {
         $model = new Units();
         if (!$model->deleteByPk(Yii::app()->request->getPost('id'))) {
@@ -119,6 +125,11 @@ class SiteController extends Controller {
         }
     }
 
+    /**
+     * This is the action for requests from frontend for change counter of
+     * units type count. It as increment counter that and decrement its
+     * @throws CDbException
+     */
     public function actionChangeCount() {
         $record = Units::model()->findByPk(Yii::app()->request->getPost('id'));
         if ($record == NULL) {
@@ -138,6 +149,9 @@ class SiteController extends Controller {
         }
     }
 
+    /**
+     * This is the action to handle external requests for showing old records
+     */
     public function actionShowMoreIntervals() {
         
     }

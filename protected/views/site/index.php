@@ -8,7 +8,7 @@ $this->pageTitle=Yii::app()->name;
 <script type="text/javascript" src="/assets/userscripts/FormData.js"></script>
 
 <h2 style="text-align: center">Добавить новое что-то</h2>
-<form method="POST" action="/">
+<form name="AddUnit" method="POST" action="/">
 
     <div id="forAdd">
         <span class="unitText">
@@ -40,7 +40,7 @@ $this->pageTitle=Yii::app()->name;
     <br><br>
     <hr style="width: 96%; margin: auto">
     <br><br>
-    <h2 style="text-align: center">Список чего-то (<?php echo $date ?>)</h2>
+    <h2 style="text-align: center">Список чего-то (<?php echo str_replace('/', '.', $this->getWeekDateInterval(DAY_BEGIN)); ?>)</h2>
     <div id="unitList">
         <table id="units">
             <thead>
@@ -66,4 +66,4 @@ $this->pageTitle=Yii::app()->name;
             </tbody>
         </table>
     <div/>
-<?php endif ?>
+<?php endif; ?>

@@ -12,7 +12,7 @@ $(document).ready(function() {
 
     // Реакция на клик по кнопке добавления новой записи
     $('#btnAdd').live('click', function() {
-        cfd.sendForm('/index.php/site/addunit', '#btnAdd');
+        cfd.sendForm('/site/addunit', '#btnAdd');
     });
     
     // Реакция на клик по кнопке удаления записи
@@ -20,7 +20,7 @@ $(document).ready(function() {
         var self = this;
 
         cfd.sendRequest(
-                '/index.php/site/delunit',
+                '/site/delunit',
                 {id: $(this).attr('id')},
                 function() {
                     table.fnDeleteRow(table.fnGetPosition(self.parentNode.parentNode));
@@ -36,7 +36,7 @@ $(document).ready(function() {
         var self = this;
         
         cfd.sendRequest(
-                    '/index.php/site/changeCount',
+                    '/site/changeCount',
                     {
                         id: $(self).attr('id'),
                         op: $(self).attr('op')
@@ -46,4 +46,7 @@ $(document).ready(function() {
                     }
                 );
     });
+    
+    // Реакция на клик по кнопке отображения предыдущих записей
+    
 });
