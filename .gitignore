@@ -1,4 +1,4 @@
-.*
+.git
 /nbproject/private/
 *.sublime*
 /protected/runtime/application.log
