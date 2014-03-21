@@ -3,3 +3,4 @@
 *.sublime*
 /protected/runtime/application.log
 /protected/data/testdrive.db
+assets
