@@ -21,16 +21,16 @@ class AjaxController extends Controller
      * This is the action to handle external requests for adding new unit in
      * database table
      */
-    public function actionAddUnit($text, $count, $type) {
+    public function actionAddUnit() {
         $model = new Units();
 
-        $model->text  = $text;//Yii::app()->request->getPost('text');
-        $model->count = $count;//Yii::app()->request->getPost('count');
+        $model->text  = Yii::app()->request->getPost('text');
+        $model->count = Yii::app()->request->getPost('count');
 
-        $unittypes = UnitTypes::model()->findByAttributes(array('type' => $type));//Yii::app()->request->getPost('type')));
+        $unittypes = UnitTypes::model()->findByAttributes(array('type' => Yii::app()->request->getPost('type')));
 
         $model->type        = $unittypes->id;
-        $model->date_create = date('Y/m/d h:i:s');                                  //new CDbExpression('NOW()');
+        $model->date_create = date('Y/m/d h:i:s');
 
         if ($model->save()) {
             echo
