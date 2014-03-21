@@ -7,31 +7,40 @@
  */
 class AjaxController extends Controller
 {
+    
+    /**
+     * This is the action to handle external exceptions.
+     */
+    public function actionError() {
+        if ($error = Yii::app()->errorHandler->error) {
+            echo $error['message'];
+        }
+    }
+    
 	/**
      * This is the action to handle external requests for adding new unit in
      * database table
      */
-    public function actionAddUnit() {
+    public function actionAddUnit($text, $count, $type) {
         $model = new Units();
 
-        $model->text = Yii::app()->request->getPost('text');
-        $model->count = Yii::app()->request->getPost('count');
+        $model->text  = $text;//Yii::app()->request->getPost('text');
+        $model->count = $count;//Yii::app()->request->getPost('count');
 
-        $unittypes = UnitTypes::model()->findByAttributes(array('type' => Yii::app()->request->getPost('type')));
+        $unittypes = UnitTypes::model()->findByAttributes(array('type' => $type));//Yii::app()->request->getPost('type')));
 
-        $model->type = $unittypes->id;
-
+        $model->type        = $unittypes->id;
         $model->date_create = date('Y/m/d h:i:s');                                  //new CDbExpression('NOW()');
 
         if ($model->save()) {
             echo
-            $model->text . '*-' .
-            '<span>' . intval($model->count) . '</span>' .
-            '&nbsp;&nbsp;' .
-            CHtml::button('+', array('class' => 'changeCount', 'op' => 'inc', 'id' => $model->id)) .
-            CHtml::button('--', array('class' => 'changeCount', 'op' => 'dec', 'id' => $model->id)) . '*-' .
-            $unittypes->name_ru . '*-' .
-            CHtml::button('X', array('class' => 'delRow', 'id' => $model->id));
+                $model->text . '*-' .
+                '<span>' . intval($model->count) . '</span>' .
+                '&nbsp;&nbsp;' .
+                CHtml::button('+', array('class' => 'changeCount', 'op' => 'inc', 'id' => $model->id)) .
+                CHtml::button('--', array('class' => 'changeCount', 'op' => 'dec', 'id' => $model->id)) . '*-' .
+                $unittypes->name_ru . '*-' .
+                CHtml::button('X', array('class' => 'delRow', 'id' => $model->id));
         } else {
             echo 'Can\'t save bad data';
         }
