@@ -33,14 +33,21 @@ $this->pageTitle=Yii::app()->name;
         </span>
     </div>
 </form>
+<h3 style="text-align: center; margin-top: 20px;">
+    <form action="." method="POST">
+        <?php echo CHtml::label('Изменить дату', 'chDate'); ?>
+        <?php echo CHtml::textField('chDate'); ?>
+        <?php echo CHtml::submitButton('Выполнить'); ?>
+    </form>
+</h3>
 
-
-<?php 
-    if (!empty($statistic)):?>
+<?php if (!empty($statistic)):?>
     <br><br>
     <hr style="width: 96%; margin: auto">
     <br><br>
-    <h2 style="text-align: center">Список чего-то (<?php echo str_replace('/', '.', $this->getWeekDateInterval(DAY_BEGIN)); ?>)</h2>
+    <h2 style="text-align: center">
+        Список чего-то (<?php echo str_replace('/', '.', $this->getWeekDateInterval(DAY_BEGIN, 7, $_POST['chDate'])); ?>)
+    </h2>
     <div id="unitList">
         <table id="units">
             <thead>
