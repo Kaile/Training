@@ -56,7 +56,8 @@ class SiteController extends Controller {
         // using the default layout 'protected/views/layouts/main.php'
         define('DAY_BEGIN', 2);
 
-        $arrDate = split(' - ', $this->getWeekDateInterval(DAY_BEGIN, 7, $_POST['chDate']));
+        $chDate = (!isset($_POST['chDate'])) ? 'now' : $_POST['chDate'];        
+        $arrDate = explode(' - ', $this->getWeekDateInterval(DAY_BEGIN, 7, $chDate));
 
         $criteria = new CDbCriteria();
         $criteria->join = 'LEFT JOIN UnitTypes s ON t.type = s.id';

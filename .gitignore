@@ -1,3 +1,5 @@
+.idea
+/themes
 .git
 /nbproject/private/
 *.sublime*

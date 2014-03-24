@@ -46,7 +46,8 @@ $this->pageTitle=Yii::app()->name;
     <hr style="width: 96%; margin: auto">
     <br><br>
     <h2 style="text-align: center">
-        Список чего-то (<?php echo str_replace('/', '.', $this->getWeekDateInterval(DAY_BEGIN, 7, $_POST['chDate'])); ?>)
+        <?php $chDate = (!isset($_POST['chDate'])) ? 'now' : $_POST['chDate']; ?>
+        Список чего-то (<?php echo str_replace('/', '.', $this->getWeekDateInterval(DAY_BEGIN, 7, $chDate)); ?>)
     </h2>
     <div id="unitList">
         <table id="units">
