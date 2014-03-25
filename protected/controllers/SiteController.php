@@ -57,7 +57,7 @@ class SiteController extends Controller {
         define('DAY_BEGIN', 2);
 
         $chDate = (!isset($_POST['chDate'])) ? 'now' : $_POST['chDate'];        
-        $arrDate = explode(' - ', $this->getWeekDateInterval(DAY_BEGIN, 7, $chDate));
+        $arrDate = explode(' - ', $this->getWeekDateInterval(DAY_BEGIN, 6, $chDate));
 
         $criteria = new CDbCriteria();
         $criteria->join = 'LEFT JOIN UnitTypes s ON t.type = s.id';
