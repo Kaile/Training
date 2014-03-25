@@ -39,15 +39,19 @@ $this->pageTitle=Yii::app()->name;
         <?php echo CHtml::textField('chDate'); ?>
         <?php echo CHtml::submitButton('Выполнить'); ?>
     </form>
+    <br/><br/>
+    <p>
+        <?php echo str_replace('/', '.', $this->getWeekDateInterval(DAY_BEGIN, 6, $_POST['chDate'])); ?>
+    </p>
 </h3>
 
 <?php if (!empty($statistic)):?>
-    <br><br>
+    <br/>
     <hr style="width: 96%; margin: auto">
     <br><br>
     <h2 style="text-align: center">
         <?php $chDate = (!isset($_POST['chDate'])) ? 'now' : $_POST['chDate']; ?>
-        Список чего-то (<?php echo str_replace('/', '.', $this->getWeekDateInterval(DAY_BEGIN, 7, $chDate)); ?>)
+        Список чего-то
     </h2>
     <div id="unitList">
         <table id="units">
