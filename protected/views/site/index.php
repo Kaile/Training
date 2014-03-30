@@ -41,7 +41,10 @@ $this->pageTitle=Yii::app()->name;
     </form>
     <br/><br/>
     <p>
-        <?php echo str_replace('/', '.', $this->getWeekDateInterval(DAY_BEGIN, 6, $_POST['chDate'])); ?>
+        <?php 
+            $chDate = (!isset($_POST['chDate'])) ? 'now' : $_POST['chDate'];
+            echo str_replace('/', '.', $this->getWeekDateInterval(DAY_BEGIN, 6, $chDate)); 
+        ?>
     </p>
 </h3>
 
