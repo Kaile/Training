@@ -1,5 +1,6 @@
 <?php
 /* @var $this SiteController */
+/* @var $dateInterval DateJump */
 
 $this->pageTitle=Yii::app()->name;
 ?>
@@ -41,8 +42,40 @@ $this->pageTitle=Yii::app()->name;
     </form>
     <br/><br/>
     <p>
-        <?php echo str_replace('/', '.', $this->getWeekDateInterval(DAY_BEGIN, 6, $_POST['chDate'])); ?>
+		<form action="." method="POST" style="float: left">
+			<input type="hidden" name="chDate" value="<?php echo $dateInterval->prev()->format(DateJump::DATE_FORMAT); ?>"/>
+			<?php 
+			echo CHtml::submitButton('  <  ', array(
+													'id' => 'btnDatePrev', 
+													'style' => 'margin-right: 20px;',
+													'title' => 'Предыдущая неделя'
+												)
+									);
+			?>
+		</form>
+		<?php echo $dateInterval->getWeekDateInterval('d.m.Y'); ?>
+		<form action="." method="POST" style="float: right">
+			<input type="hidden" name="chDate" value="<?php echo $dateInterval->next()->format(DateJump::DATE_FORMAT); ?>"/>
+			<?php
+			echo CHtml::submitButton('  >  ', array(
+													'id' => 'btnDateNext', 
+													'style' => 'margin-left: 20px;',
+													'title' => 'Следующая неделя'
+												)
+									);
+			?>
+		</form>
     </p>
+	<p>
+		<?php if (! $dateInterval->isCurrent()): ?>
+			<form action="." method="POST" style="float: bottom">
+				<input type="hidden" name="chDate" value="<?php echo date(DateJump::DATE_FORMAT) ?>"/>
+				<?php 
+				echo CHtml::submitButton('|_^_|', array('title' => 'Перейти к текущей дате')); 
+				?>
+			</form>
+		<?php endif; ?>
+	</p>
 </h3>
 
 <?php if (!empty($statistic)):?>
@@ -65,12 +98,14 @@ $this->pageTitle=Yii::app()->name;
                 <?php foreach ($statistic as $val): ?>
                     <tr>
                         <td><?php echo $val->text; ?></td>
-                        <td><?php 
+                        <td>
+							<?php 
                             echo '<span>' . intval($val->count) . '</span>';
                             echo '&nbsp;&nbsp;';
-                            echo CHtml::button('+', array('class' => 'changeCount', 'op' => 'inc', 'id' => $val->id));
+                            echo CHtml::button('+',  array('class' => 'changeCount', 'op' => 'inc', 'id' => $val->id));
                             echo CHtml::button('--', array('class' => 'changeCount', 'op' => 'dec', 'id' => $val->id));
-                        ?></td>
+							?>
+						</td>
                         <td><?php echo $val->type; ?></td>
                         <td><?php echo CHtml::button('X', array('class' => 'delRow', 'id' => $val->id)); ?></td>
                     </tr>
@@ -78,4 +113,4 @@ $this->pageTitle=Yii::app()->name;
             </tbody>
         </table>
     <div/>
-<?php endif; ?>
+<?php endif;

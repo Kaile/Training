@@ -115,11 +115,11 @@ FormData.prototype.deleteRow = function(url, params) {
 
 FormData.prototype.successSendForm  = function(data, textStatus, jqXHR) {
     alert('Form data has been successfully sended');
-}
+};
 
 FormData.prototype.errorSendForm  = function(jqXHR, textStatus, errorThrown) {
     alert('Form data hasn\'t  sended');
-}
+};
 
     
 // *************************************************************
