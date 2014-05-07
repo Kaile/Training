@@ -44,4 +44,10 @@ class SiteController extends Controller {
             $this->render('error', $error);
         }
     }
+	
+	public function actionUnits() {
+		$unitTypes = UnitTypes::model()->findAll();
+		
+		$this->render('units', array('unitTypes' => $unitTypes));
+	}
 }

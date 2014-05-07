@@ -80,11 +80,4 @@ class AjaxController extends Controller
             throw new CDbException('Can\'t save changed value');
         }
     }
-
-    /**
-     * This is the action to handle external requests for showing old records
-     */
-    public function actionShowMoreIntervals() {
-        
-    }
 }
