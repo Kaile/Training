@@ -3,13 +3,15 @@
 /**
  * Class SiteController is the base controller of this resourse
  */
-class SiteController extends Controller {
+class SiteController extends Controller 
+{
 
     /**
      * This is the default 'index' action that is invoked
      * when an action is not explicitly requested by users.
      */
-    public function actionIndex() {
+    public function actionIndex() 
+	{
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
         define('DAY_BEGIN', 2);
@@ -39,15 +41,26 @@ class SiteController extends Controller {
     /**
      * This is the action to handle external exceptions.
      */
-    public function actionError() {
+    public function actionError() 
+	{
         if ($error = Yii::app()->errorHandler->error) {
             $this->render('error', $error);
         }
     }
 	
-	public function actionUnits() {
-		$unitTypes = UnitTypes::model()->findAll();
+	public function actionAddUnitType() 
+	{
+		$unitTypes = new UnitTypes('AddUnitType');
 		
-		$this->render('units', array('unitTypes' => $unitTypes));
+		if (isset($_POST['UnitTypes'])) {
+			$unitTypes->attributes = $_POST['UnitTypes'];
+
+			$unitTypes->save();
+		}
+		
+		$this->render('AddUnitType', array(
+				'unitTypes' => $unitTypes,
+				'list'      => $unitTypes->findAll()
+			));
 	}
 }

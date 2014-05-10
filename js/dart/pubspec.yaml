@@ -1,0 +1,7 @@
+name: training
+author: Mihail Kornilov <fix-06 at yandex.ru>
+version: 0.0.1
+homepage: http://training
+description: Training application for get to myself experience in dart application programming
+environment:
+  sdk: 1.1.1

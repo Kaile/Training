@@ -5,7 +5,6 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 <script type="text/javascript" src="/js/userscripts/FormAddControll.js"></script>
-<script type="text/javascript" src="/js/userscripts/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="/js/userscripts/FormData.js"></script>
 
 <h2 style="text-align: center">Добавить новое что-то</h2>
