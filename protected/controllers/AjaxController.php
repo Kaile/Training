@@ -16,35 +16,6 @@ class AjaxController extends Controller
             echo $error['message'];
         }
     }
-    
-	/**
-     * This is the action to handle external requests for adding new unit in
-     * database table
-     */
-    public function actionAddUnit() {
-        $model = new Units();
-
-        $model->text  = Yii::app()->request->getPost('text');
-        $model->count = Yii::app()->request->getPost('count');
-
-        $unittypes = UnitTypes::model()->findByAttributes(array('type' => Yii::app()->request->getPost('type')));
-
-        $model->type        = $unittypes->id;
-        $model->date_create = date('Y/m/d h:i:s');
-
-        if ($model->save()) {
-            echo
-                $model->text . '*-' .
-                '<span>' . intval($model->count) . '</span>' .
-                '&nbsp;&nbsp;' .
-                CHtml::button('+', array('class' => 'changeCount', 'op' => 'inc', 'id' => $model->id)) .
-                CHtml::button('--', array('class' => 'changeCount', 'op' => 'dec', 'id' => $model->id)) . '*-' .
-                $unittypes->name_ru . '*-' .
-                CHtml::button('X', array('class' => 'delRow', 'id' => $model->id));
-        } else {
-            echo 'Can\'t save bad data';
-        }
-    }
 
     /**
      * This is the action that delete row from Units table in the database
