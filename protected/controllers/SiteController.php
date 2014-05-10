@@ -53,7 +53,7 @@ class SiteController extends Controller
 		$unitTypes = new UnitTypes('AddUnitType');
 		
 		if (isset($_POST['UnitTypes'])) {
-			$unitTypes->attributes = $_POST['UnitTypes'];
+			$unitTypes->attributes = Yii::app()->request->getPost('UnitTypes');
 
 			$unitTypes->save();
 		}
