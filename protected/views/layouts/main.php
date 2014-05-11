@@ -36,7 +36,7 @@
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'Главная', 'url'=>array('site/index')),
+				array('label'=>'Главная', 'url'=>array('site/')),
 				array('label'=>'Единицы', 'url'=>array('site/AddUnitType')),
 			),
 		)); ?>

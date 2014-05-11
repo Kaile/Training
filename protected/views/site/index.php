@@ -7,10 +7,10 @@ $this->pageTitle=Yii::app()->name;
 
 <h2 style="text-align: center">Добавить новое что-то</h2>
 
-<?php echo CHtml::beginForm('index', 'POST', array('name' => 'Units')); ?>
+<?php echo CHtml::beginForm('.', 'POST', array('name' => 'Units')); ?>
     <table>
 		<thead>
-			<th><?php echo CHtml::activeLabel($model, 'text');?></th>
+			<th style="width: 50%;"><?php echo CHtml::activeLabel($model, 'text');?></th>
 			<th><?php echo CHtml::activeLabel($model, 'count');?></th>
 			<th>
 				<?php echo CHtml::activeLabel($model, 'type');?>
@@ -20,9 +20,9 @@ $this->pageTitle=Yii::app()->name;
 		</thead>
 		<tbody>
 			<tr>
-				<td><?php echo CHtml::activeTextField($model, 'text'); ?></td>
+				<td><?php echo CHtml::activeTextField($model, 'text', array('style' => 'width: 95%')); ?></td>
 				<td><?php echo CHtml::activeTextField($model, 'count'); ?></td>
-				<td><?php echo CHtml::activeDdropDownList($model, 'type', $unitTypes); ?></td>
+				<td><?php echo CHtml::activeDropDownList($model, 'type', $unitTypes); ?></td>
 				<td><?php echo CHtml::submitButton('Добавить'); ?></td>
 			</tr>
 		</tbody>
