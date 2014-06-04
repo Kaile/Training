@@ -16,7 +16,7 @@ class SiteController extends Controller
 
 		if (isset($_POST['Units'])) {
 			$model->attributes = Yii::app()->request->getPost('Units');
-			
+			$model->date_create = date('Y/m/d h:i:s');
 			$model->save();
 		}
 		

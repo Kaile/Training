@@ -23,7 +23,7 @@ $this->pageTitle=Yii::app()->name;
 				<td><?php echo CHtml::activeTextField($model, 'text', array('style' => 'width: 95%')); ?></td>
 				<td><?php echo CHtml::activeTextField($model, 'count'); ?></td>
 				<td><?php echo CHtml::activeDropDownList($model, 'type', $unitTypes); ?></td>
-				<td><?php echo CHtml::submitButton('Добавить'); ?></td>
+				<td><?php echo CHtml::submitButton('Добавить', array('id' => 'AddNewUnit')); ?></td>
 			</tr>
 		</tbody>
 	</table>
