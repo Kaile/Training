@@ -94,7 +94,7 @@ $this->pageTitle=Yii::app()->name;
                         <td><?php echo $val->text; ?></td>
                         <td>
 							<?php 
-                            echo '<span>' . intval($val->count) . '</span>';
+                            echo '<span id="count">' . intval($val->count) . '</span>';
                             echo '&nbsp;&nbsp;';
                             echo CHtml::button('+',  array('class' => 'changeCount', 'op' => 'inc', 'id' => $val->id));
                             echo CHtml::button('--', array('class' => 'changeCount', 'op' => 'dec', 'id' => $val->id));

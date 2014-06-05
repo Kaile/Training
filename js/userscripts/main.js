@@ -11,8 +11,15 @@ $(document).ready(function () {
 	$('.delRow').click(function() {
 		var data  = {};
 		data.id   = $(this).attr('id');
-		data.self = this;
 		(new DeleteRowRequest(data)).send();
+	});
+	
+	// inc/dec counter in units 
+	$('.changeCount').click(function() {
+		var data = {};
+		data.id = $(this).attr('id');
+		data.op = $(this).attr('op');
+		(new IncDecRequest(data)).send();
 	});
 });
 
@@ -23,7 +30,7 @@ function AjaxRequest(data) {
 	this.type     = 'POST';
 	this.url      = '.';
 	
-	this.beforSend = function() {};
+	this.beforeSend = function() {};
 	
 	this.success   = function(data) {};
 	
@@ -43,7 +50,7 @@ function AjaxRequest(data) {
 			url:      self.url,
 			dataType: self.dataType,
 			beforeSend: function(xhr) {
-				self.beforSend();
+				self.beforeSend();
 			},
 			success: function(data, textStatus, jqXHR) {
 				self.success(data);
@@ -67,9 +74,22 @@ function DeleteRowRequest(data) {
 		if (data.length > 1) {
 			console.info(data);
 		} else {
-			table.fnDeleteRow(table.fnGetPosition(this.data.self.parentNode.parentNode));
+			table.fnDeleteRow(table.fnGetPosition(document.getElementById(this.data.id).parentNode.parentNode));
 		}
+		location.reload();
 	};
 }
 DeleteRowRequest.prototype = new AjaxRequest();
 DeleteRowRequest.prototype.constructor = AjaxRequest.constructor;
+
+// request for increment/decrement counter of units
+function IncDecRequest(data) {
+	this.data = data;
+	this.url  = '/ajax/changecount';
+	
+	this.success = function(data) {
+		$('#count').html(data);
+	};
+}
+IncDecRequest.prototype = new AjaxRequest();
+IncDecRequest.prototype.constructor = AjaxRequest.constructor;
