@@ -21,14 +21,14 @@ class AjaxController extends Controller
      * This is the action that delete row from Units table in the database
      * by identificator that transmits by request
      */
-    public function actionDelUnit() {
-        $model = new Units();
-        if (!$model->deleteByPk(Yii::app()->request->getPost('id'))) {
-            echo 'Don\'t delete row';
-        }
-    }
+//    public function actionDelUnit() {
+//        $model = new Units();
+//        if (!$model->deleteByPk(Yii::app()->request->getPost('id'))) {
+//            echo 'Don\'t delete row';
+//        }
+//    }
 
-    /**
+	/**
      * This is the action for requests from frontend for change counter of
      * units type count. It as increment counter that and decrement its
      * @throws CDbException

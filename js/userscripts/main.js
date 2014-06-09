@@ -68,7 +68,7 @@ function AjaxRequest(data) {
 // request for deleting row
 function DeleteRowRequest(data) {
 	this.data = data;
-	this.url = '/ajax/delunit';
+	this.url = '/crud/delunit';
 	
 	this.success = function(data) {
 		if (data.length > 1) {
@@ -76,7 +76,7 @@ function DeleteRowRequest(data) {
 		} else {
 			table.fnDeleteRow(table.fnGetPosition(document.getElementById(this.data.id).parentNode.parentNode));
 		}
-		location.reload();
+		//location.reload();
 	};
 }
 DeleteRowRequest.prototype = new AjaxRequest();
@@ -88,7 +88,7 @@ function IncDecRequest(data) {
 	this.url  = '/ajax/changecount';
 	
 	this.success = function(data) {
-		$('#count').html(data);
+		$('.changeCount[id=' + this.data.id + ']').prev('span#count').html(data);
 	};
 }
 IncDecRequest.prototype = new AjaxRequest();

@@ -25,7 +25,7 @@ class Units extends CActiveRecord
         );
     }
 
-	public function rules() 
+	public function rules()
 	{
 		return array(
 				array('text, count, type', 'required', 'on' => 'AddUnit')
