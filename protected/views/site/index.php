@@ -100,7 +100,7 @@ $this->pageTitle=Yii::app()->name;
                             echo CHtml::button('--', array('class' => 'changeCount', 'op' => 'dec', 'id' => $val->id));
 							?>
 						</td>
-                        <td><?php echo $val->type; ?></td>
+                        <td><?php echo $unitTypes[$val->type]; ?></td>
                         <td><?php echo CHtml::button('X', array('class' => 'delRow', 'id' => $val->id)); ?></td>
                     </tr>
                 <?php endforeach ?>
